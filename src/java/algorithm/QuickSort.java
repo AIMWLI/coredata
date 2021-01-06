@@ -51,3 +51,5 @@ public class QuickSort {
         arr[j] = tmp;
     }
 }
+
+public class Util { public static void test() {} }
