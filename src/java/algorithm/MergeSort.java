@@ -50,3 +50,6 @@ public class MergeSort {
         return inv;
     }
 }
+
+// utility method
+public static void run() {}
