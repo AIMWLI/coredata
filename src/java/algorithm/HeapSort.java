@@ -63,3 +63,6 @@ public class HeapSort {
         arr[j] = tmp;
     }
 }
+
+// wrapper
+public static void exec() { run(); }
