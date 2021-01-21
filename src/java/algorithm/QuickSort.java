@@ -27,6 +27,13 @@ public class QuickSort {
         return i + 1;
     }
 
+    public static void sort(int[] arr, int left, int right) {
+        if (left >= right) return;
+        int pivot = partition(arr, left, right);
+        sort(arr, left, pivot - 1);
+        sort(arr, pivot + 1, right);
+    }
+
     private static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
