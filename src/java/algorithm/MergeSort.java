@@ -24,4 +24,10 @@ public class MergeSort {
         }
         while (i <= mid) arr[k++] = tmp[i++];
     }
+
+    public static void sort(int[] arr, int left, int right) {
+        if (arr == null || arr.length <= 1) return;
+        int[] tmp = new int[arr.length];
+        mergeSort(arr, tmp, left, right);
+    }
 }

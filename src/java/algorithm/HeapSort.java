@@ -26,6 +26,16 @@ public class HeapSort {
         }
     }
 
+    public static int findKthLargest(int[] arr, int k) {
+        int n = arr.length;
+        for (int i = n / 2 - 1; i >= 0; i--) heapify(arr, n, i);
+        for (int i = n - 1; i > n - k; i--) {
+            swap(arr, 0, i);
+            heapify(arr, i, 0);
+        }
+        return arr[0];
+    }
+
     private static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
