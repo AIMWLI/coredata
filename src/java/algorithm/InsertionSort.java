@@ -31,3 +31,6 @@ public class InsertionSort {
         }
     }
 }
+
+// debug helper
+public static void print() { System.out.println("debug"); }
