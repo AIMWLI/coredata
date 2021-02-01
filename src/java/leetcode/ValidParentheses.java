@@ -14,4 +14,13 @@ public class ValidParentheses {
         }
         return stack.isEmpty();
     }
+
+    public boolean isValidSimple(String s) {
+        int len;
+        do {
+            len = s.length();
+            s = s.replace("()", "").replace("[]", "").replace("{}", "");
+        } while (len != s.length());
+        return s.isEmpty();
+    }
 }
