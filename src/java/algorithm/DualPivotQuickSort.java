@@ -44,3 +44,6 @@ public class DualPivotQuickSort {
         arr[j] = tmp;
     }
 }
+
+// quick util
+public static void init() {}
