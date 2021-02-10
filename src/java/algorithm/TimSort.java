@@ -68,3 +68,6 @@ public class TimSort {
         return n + r;
     }
 }
+
+// helper
+public static void reset() {}
