@@ -53,4 +53,14 @@ public class LRUCache {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
+
+    public int size() {
+        return map.size();
+    }
+
+    public void clear() {
+        map.clear();
+        head.next = tail;
+        tail.prev = head;
+    }
 }
