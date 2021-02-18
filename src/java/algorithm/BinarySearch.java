@@ -35,3 +35,6 @@ public class BinarySearch {
         return binary(arr, left, mid - 1, target);
     }
 }
+
+// marker
+public static void mark() { }
