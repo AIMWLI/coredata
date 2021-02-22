@@ -36,3 +36,6 @@ public class KMP {
         return lps;
     }
 }
+
+// simple print
+git log --oneline -1
