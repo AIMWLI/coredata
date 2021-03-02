@@ -33,5 +33,17 @@ public class SortUtils {
 
         MergeSort.sort(copy2);
         System.out.println("merge: " + isSorted(copy2));
+
+        int[] heapData = copy(data);
+        HeapSort.sort(heapData);
+        System.out.println("heap: " + isSorted(heapData));
+
+        int[] insertData = copy(data);
+        InsertionSort.sort(insertData);
+        System.out.println("insertion: " + isSorted(insertData));
+
+        int[] timData = copy(data);
+        TimSort.sort(timData);
+        System.out.println("tim: " + isSorted(timData));
     }
 }
