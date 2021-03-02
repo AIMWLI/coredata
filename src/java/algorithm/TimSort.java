@@ -44,4 +44,13 @@ public class TimSort {
         while (i < leftArr.length) arr[k++] = leftArr[i++];
         while (j < rightArr.length) arr[k++] = rightArr[j++];
     }
+
+    public static int minRunLength(int n) {
+        int r = 0;
+        while (n >= RUN) {
+            r |= (n & 1);
+            n >>= 1;
+        }
+        return n + r;
+    }
 }

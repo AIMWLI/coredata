@@ -29,6 +29,11 @@ public class DualPivotQuickSort {
         dualPivot(arr, gt + 1, right);
     }
 
+    public static void sort(int[] arr, int left, int right) {
+        if (arr == null || arr.length <= 1) return;
+        dualPivot(arr, left, right);
+    }
+
     private static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
