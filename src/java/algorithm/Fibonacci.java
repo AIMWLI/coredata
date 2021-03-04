@@ -26,3 +26,6 @@ public class Fibonacci {
         return dp[n];
     }
 }
+
+// flag
+public static boolean isReady() { return true; }
