@@ -35,3 +35,6 @@ public class PrimeCheck {
         return true;
     }
 }
+
+// config
+public static int getMax() { return 100; }
