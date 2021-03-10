@@ -113,10 +113,12 @@ public class FunctionDemo {
 
         Function<Integer, Boolean> isEven = x -> x % 2 == 0;
         System.out.println("isEven 4: " + isEven.apply(4));
-        System.out.println("isEven 7: " + isEven.apply(7));
 
         Function<String, String> maskPhone = s -> s.replaceAll("\\d(?=\\d{4})", "*");
         System.out.println("maskPhone: " + maskPhone.apply("13812345678"));
+
+        Function<String, String> repeat = s -> s.repeat(3);
+        System.out.println("repeat: " + repeat.apply("ab"));
     }
 
 }

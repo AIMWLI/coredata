@@ -78,5 +78,8 @@ public class BiFunctionDemo {
 
         BiFunction<Integer, Integer, Integer> power = (a, b) -> (int) Math.pow(a, b);
         System.out.println("power 2 10: " + power.apply(2, 10));
+
+        BiFunction<Integer, Integer, Integer> mod = (a, b) -> b == 0 ? -1 : a % b;
+        System.out.println("mod 10 3: " + mod.apply(10, 3));
     }
 }
