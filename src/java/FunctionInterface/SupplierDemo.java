@@ -93,5 +93,12 @@ public class SupplierDemo {
 
         Supplier<Long> pidSupplier = () -> ProcessHandle.current().pid();
         System.out.println("pid: " + pidSupplier.get());
+
+        Supplier<Integer> fib = () -> {
+            int a = 0, b = 1, n = 10;
+            for (int i = 0; i < n; i++) { int tmp = a + b; a = b; b = tmp; }
+            return a;
+        };
+        System.out.println("fib 10: " + fib.get());
     }
 }
