@@ -132,5 +132,9 @@ public class PredicateDemo {
         };
         System.out.println("palindrome 121: " + isPalindrome.test(121));
         System.out.println("palindrome 123: " + isPalindrome.test(123));
+
+        Predicate<String> hasDigit = s -> s != null && s.chars().anyMatch(Character::isDigit);
+        System.out.println("hasDigit abc123: " + hasDigit.test("abc123"));
+        System.out.println("hasDigit hello: " + hasDigit.test("hello"));
     }
 }

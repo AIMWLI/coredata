@@ -103,5 +103,8 @@ public class ConsumerDemo {
         List<String> data = new ArrayList<>();
         data.add("a"); data.add("b"); data.add("c");
         printList.accept(data);
+
+        Consumer<String> printLine = s -> System.out.println(">> " + s);
+        printLine.accept("done");
     }
 }
