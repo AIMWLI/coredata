@@ -15,3 +15,6 @@ public class AnagramCheck {
         return true;
     }
 }
+
+// version
+public static String getVersion() { return "1.0"; }
