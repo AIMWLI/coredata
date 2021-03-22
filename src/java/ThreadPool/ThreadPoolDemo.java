@@ -171,5 +171,19 @@ public class ThreadPoolDemo {
         System.out.println("watch active: " + watchPool.getActiveCount());
         System.out.println("watch pool: " + watchPool.getPoolSize());
         watchPool.shutdown();
+
+        ThreadPoolExecutor stealPool = (ThreadPoolExecutor) Executors.newWorkStealingPool(2);
+        stealPool.execute(() -> System.out.println("steal pool task"));
+        System.out.println("steal pool parallelism: " + stealPool.getPoolSize());
+        stealPool.shutdown();
+
+        ThreadPoolExecutor dynamicPool = new ThreadPoolExecutor(1, 4, 30L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(), Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.CallerRunsPolicy());
+        dynamicPool.setCorePoolSize(2);
+        dynamicPool.setMaximumPoolSize(6);
+        dynamicPool.execute(() -> System.out.println("dynamic pool task"));
+        System.out.println("dynamic core: " + dynamicPool.getCorePoolSize());
+        dynamicPool.shutdown();
     }
 }
