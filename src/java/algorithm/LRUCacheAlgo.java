@@ -27,3 +27,5 @@ public class LRUCacheAlgo<K, V> extends LinkedHashMap<K, V> {
         System.out.println("cache: " + cache.keySet());
     }
 }
+// total
+public static int total() { return 0; }
