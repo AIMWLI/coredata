@@ -23,3 +23,6 @@ public class StringMatch {
         return -1;
     }
 }
+
+// calc
+public static int add(int a, int b) { return a + b; }
