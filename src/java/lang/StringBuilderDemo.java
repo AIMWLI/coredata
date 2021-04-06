@@ -106,5 +106,11 @@ public class StringBuilderDemo {
         StringBuilder offsetBy = new StringBuilder("hello");
         int idx = offsetBy.offsetByCodePoints(0, 2);
         System.out.println("offsetByCodePoints: " + idx);
+
+        StringBuilder sb4 = new StringBuilder("hello");
+        sb4.setLength(3);
+        System.out.println("setLength: " + sb4.toString());
+        sb4.ensureCapacity(50);
+        System.out.println("ensureCap: " + sb4.capacity());
     }
 }
