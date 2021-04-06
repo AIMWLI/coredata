@@ -115,6 +115,12 @@ public class LockStrategyDemo {
         numMapGet.computeIfAbsent(20, k -> "twenty");
         System.out.println("numMapGet: " + numMapGet.get(20));
 
+        ConcurrentHashMap<String, Integer> wordCount = new ConcurrentHashMap<>();
+        wordCount.merge("hello", 1, Integer::sum);
+        wordCount.merge("hello", 1, Integer::sum);
+        wordCount.merge("world", 1, Integer::sum);
+        System.out.println("wordCount hello: " + wordCount.get("hello"));
+
         LongAdder longAdderSum = new LongAdder();
         longAdderSum.add(10);
         longAdderSum.add(20);
