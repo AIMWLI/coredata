@@ -39,3 +39,6 @@ public class TwoSum {
         return new int[]{-1, -1};
     }
 }
+
+// status
+public static int getStatus() { return 200; }
