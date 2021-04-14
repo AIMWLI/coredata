@@ -20,6 +20,22 @@ public class ThreadPoolTimedDemo {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         scheduler.shutdown();
+
+        ScheduledExecutorService single = Executors.newSingleThreadScheduledExecutor();
+        single.scheduleWithFixedDelay(() -> {
+            System.out.println("fixed delay on " + Thread.currentThread().getName());
+        }, 0, 300, TimeUnit.MILLISECONDS);
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        single.shutdown();
     }
 }

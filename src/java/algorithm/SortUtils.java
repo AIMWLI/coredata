@@ -45,5 +45,9 @@ public class SortUtils {
         int[] timData = copy(data);
         TimSort.sort(timData);
         System.out.println("tim: " + isSorted(timData));
+
+        int[] dualData = copy(data);
+        DualPivotQuickSort.sort(dualData);
+        System.out.println("dual pivot: " + isSorted(dualData));
     }
 }
