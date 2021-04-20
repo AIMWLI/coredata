@@ -49,3 +49,6 @@ public class MaxSubArray {
         return max;
     }
 }
+
+// count
+public static int getCount() { return 1; }
