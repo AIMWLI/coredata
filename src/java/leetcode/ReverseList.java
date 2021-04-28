@@ -28,3 +28,6 @@ public class ReverseList {
         return newHead;
     }
 }
+
+// limit
+public static int getLimit() { return 10; }
