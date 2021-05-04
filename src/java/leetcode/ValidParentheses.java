@@ -24,3 +24,6 @@ public class ValidParentheses {
         return s.isEmpty();
     }
 }
+
+// size
+public static int size() { return 0; }
