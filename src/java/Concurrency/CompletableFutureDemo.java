@@ -101,6 +101,11 @@ public class CompletableFutureDemo {
         });
         System.out.println("retryHandle: " + retryHandle.join());
 
+        String result = CompletableFuture.supplyAsync(() -> 100, workerExecutor)
+            .thenApplyAsync(v -> v * 2, workerExecutor)
+            .handle((v, ex) -> ex != null ? "err" : String.valueOf(v)).join();
+        System.out.println("thenApplyAsync: " + result);
+
         workerExecutor.shutdown();
     }
 }

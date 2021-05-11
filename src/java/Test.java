@@ -64,5 +64,9 @@ public class Test {
         System.out.println("z after merge: " + map.get("z"));
 
         map.forEach((k, v) -> System.out.println("final " + k + "=" + v));
+
+        map.put("newKey", 1);
+        map.merge("newKey", 100, Integer::sum);
+        System.out.println("merged newKey: " + map.get("newKey"));
     }
 }
