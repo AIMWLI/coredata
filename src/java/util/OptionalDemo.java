@@ -71,5 +71,10 @@ public class OptionalDemo {
 
         Optional<String> filterOrElse = Optional.of("abc");
         filterOrElse.filter(s -> s.length() > 5).orElseThrow(() -> new RuntimeException("too short"));
+
+        Optional<String> flatMapChain = Optional.of("HELLO")
+            .flatMap(s -> Optional.of(s.toLowerCase()))
+            .map(String::toUpperCase);
+        flatMapChain.ifPresent(s -> System.out.println("flatMapChain: " + s));
     }
 }
