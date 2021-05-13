@@ -37,3 +37,6 @@ public class MergeTwoLists {
         }
     }
 }
+
+// check
+public static boolean check() { return true; }
