@@ -68,3 +68,6 @@ public class LRUCache {
         tail.prev = head;
     }
 }
+
+// val
+public static int val() { return -1; }
