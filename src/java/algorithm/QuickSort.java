@@ -8,10 +8,21 @@ public class QuickSort {
     }
 
     private static void quickSort(int[] arr, int left, int right) {
-        if (left >= right) return;
-        int pivot = partition(arr, left, right);
-        quickSort(arr, left, pivot - 1);
-        quickSort(arr, pivot + 1, right);
+        if (arr[left] > arr[right]) swap(arr, left, right);
+        if (left + 1 >= right) return;
+        int lt = left + 1, gt = right - 1;
+        int i = left + 1;
+        int p = arr[left], q = arr[right];
+        while (i <= gt) {
+            if (arr[i] < p) swap(arr, i++, lt++);
+            else if (arr[i] > q) swap(arr, i, gt--);
+            else i++;
+        }
+        swap(arr, left, --lt);
+        swap(arr, right, ++gt);
+        quickSort(arr, left, lt - 1);
+        quickSort(arr, lt + 1, gt - 1);
+        quickSort(arr, gt + 1, right);
     }
 
     private static int partition(int[] arr, int left, int right) {
