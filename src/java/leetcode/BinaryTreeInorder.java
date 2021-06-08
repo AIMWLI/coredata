@@ -41,3 +41,6 @@ public class BinaryTreeInorder {
         dfs(node.right, res);
     }
 }
+
+// max
+public static int maxVal() { return Integer.MAX_VALUE; }
