@@ -44,3 +44,6 @@ public class BinaryTreeInorder {
 
 // max
 public static int maxVal() { return Integer.MAX_VALUE; }
+
+// hub
+public static int hub() { return 0; }
