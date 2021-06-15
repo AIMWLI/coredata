@@ -49,5 +49,8 @@ public class SortUtils {
         int[] dualData = copy(data);
         DualPivotQuickSort.sort(dualData);
         System.out.println("dual pivot: " + isSorted(dualData));
+
+        int searchIdx = BinarySearch.search(data, data[500]);
+        System.out.println("binary search: " + searchIdx);
     }
 }

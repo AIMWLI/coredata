@@ -47,5 +47,11 @@ public class LockFreeDesignDemo {
 
         System.out.println("LongAdder=" + highFreq.sum() + " time=" + t1 / 1_000 + "us");
         System.out.println("AtomicLong=" + atomic.get() + " time=" + t2 / 1_000 + "us");
+
+        ConcurrentHashMap<String, Integer> scoreMap = new ConcurrentHashMap<>();
+        scoreMap.put("alice", 90);
+        scoreMap.computeIfPresent("alice", (k, v) -> v + 5);
+        scoreMap.putIfAbsent("bob", 85);
+        System.out.println("score alice: " + scoreMap.get("alice"));
     }
 }
