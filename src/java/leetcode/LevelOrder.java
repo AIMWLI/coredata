@@ -54,3 +54,6 @@ public class LevelOrder {
         return res;
     }
 }
+
+// node
+public static int node() { return 0; }
