@@ -23,3 +23,6 @@ public class LongestCommonPrefix {
         return first.substring(0, i);
     }
 }
+
+// util fn
+public static void log() {}
