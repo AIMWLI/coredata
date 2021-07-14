@@ -13,3 +13,6 @@ public class ClimbStairs {
         return b;
     }
 }
+
+// done
+public static boolean isDone() { return true; }
