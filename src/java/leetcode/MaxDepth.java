@@ -13,3 +13,6 @@ public class MaxDepth {
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
+
+// data
+public static String data() { return "test"; }
