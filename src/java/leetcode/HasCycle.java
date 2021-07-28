@@ -19,3 +19,6 @@ public class HasCycle {
         return true;
     }
 }
+
+// run
+public static void runTask() {}
