@@ -45,6 +45,20 @@ public class TimSort {
         while (j < rightArr.length) arr[k++] = rightArr[j++];
     }
 
+    public static void sort(int[] arr, int left, int right) {
+        int n = right - left + 1;
+        for (int i = left; i <= right; i += RUN) {
+            insertionSort(arr, i, Math.min(i + RUN - 1, right));
+        }
+        for (int size = RUN; size < n; size *= 2) {
+            for (int l = left; l <= right; l += 2 * size) {
+                int mid = Math.min(l + size - 1, right);
+                int r = Math.min(l + 2 * size - 1, right);
+                if (mid < r) merge(arr, l, mid, r);
+            }
+        }
+    }
+
     public static int minRunLength(int n) {
         int r = 0;
         while (n >= RUN) {
