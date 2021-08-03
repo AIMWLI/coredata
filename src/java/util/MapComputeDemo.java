@@ -69,5 +69,9 @@ public class MapComputeDemo {
 
         map.computeIfPresent("a", (k, v) -> v > 10 ? v : v + 100);
         System.out.println("a conditional: " + map.get("a"));
+
+        map.compute("test", (k, v) -> v == null ? 0 : v + 1);
+        map.merge("test", 10, Integer::sum);
+        System.out.println("test final: " + map.get("test"));
     }
 }

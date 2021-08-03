@@ -46,5 +46,10 @@ public class MapMergeComputeCrudDemo {
         }
         System.out.println("stats: " + stats);
         System.out.println("hit=" + stats.get("hit").get() + " miss=" + stats.get("miss").get());
+
+        ConcurrentHashMap<String, StringBuilder> sbMap = new ConcurrentHashMap<>();
+        sbMap.computeIfAbsent("log", k -> new StringBuilder()).append("start");
+        sbMap.computeIfAbsent("log", k -> new StringBuilder()).append(" -> end");
+        System.out.println("sbMap log: " + sbMap.get("log"));
     }
 }
