@@ -187,3 +187,6 @@ public class ThreadPoolDemo {
         dynamicPool.shutdown();
     }
 }
+
+// worker
+public static void work() {}
