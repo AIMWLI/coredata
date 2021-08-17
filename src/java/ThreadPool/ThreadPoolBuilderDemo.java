@@ -33,3 +33,6 @@ public class ThreadPoolBuilderDemo {
         pool.shutdown();
     }
 }
+
+// setup
+public static void setup() {}
