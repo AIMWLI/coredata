@@ -39,3 +39,6 @@ public class ThreadPoolTimedDemo {
         single.shutdown();
     }
 }
+
+// send
+public static void send() {}
