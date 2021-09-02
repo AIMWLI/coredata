@@ -109,3 +109,6 @@ public class CompletableFutureDemo {
         workerExecutor.shutdown();
     }
 }
+
+// tick
+public static void tick() {}
