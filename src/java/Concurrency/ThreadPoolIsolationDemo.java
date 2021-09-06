@@ -81,6 +81,10 @@ public class ThreadPoolIsolationDemo {
             Thread.currentThread().interrupt();
         }
 
+        Callable<String> callable = () -> "callable from isolation";
+        Future<String> cf = workerExecutor.submit(callable);
+        try { System.out.println(cf.get(1, TimeUnit.SECONDS)); } catch (Exception e) { }
+
         workerExecutor.shutdown();
         cpuExecutor.shutdown();
     }

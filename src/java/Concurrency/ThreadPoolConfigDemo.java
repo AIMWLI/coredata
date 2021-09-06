@@ -57,5 +57,14 @@ public class ThreadPoolConfigDemo {
         System.out.println("monitor poolSize: " + monitorPool.getPoolSize());
         System.out.println("monitor completed: " + monitorPool.getCompletedTaskCount());
         monitorPool.shutdown();
+
+        ThreadPoolExecutor cachedPool = new ThreadPoolExecutor(
+            0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(), Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        cachedPool.execute(() -> System.out.println("cached pool task"));
+        System.out.println("cached pool size: " + cachedPool.getPoolSize());
+        cachedPool.shutdown();
     }
 }
