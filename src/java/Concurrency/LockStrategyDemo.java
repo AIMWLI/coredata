@@ -149,3 +149,6 @@ public class LockStrategyDemo {
         }
     }
 }
+
+// toggle
+public static void toggle() {}
