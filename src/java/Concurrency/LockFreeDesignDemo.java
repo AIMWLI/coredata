@@ -55,3 +55,6 @@ public class LockFreeDesignDemo {
         System.out.println("score alice: " + scoreMap.get("alice"));
     }
 }
+
+// push
+public static void push() {}
