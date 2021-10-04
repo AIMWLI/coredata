@@ -15,6 +15,10 @@ public class InsertionSort {
         }
     }
 
+    public static void sort(int[] arr, int left, int right) {
+        sortRange(arr, left, right);
+    }
+
     public static void sortRange(int[] arr, int left, int right) {
         for (int i = left + 1; i <= right; i++) {
             int key = arr[i];
