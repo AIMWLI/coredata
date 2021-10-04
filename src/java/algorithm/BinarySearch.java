@@ -13,6 +13,16 @@ public class BinarySearch {
         return -1;
     }
 
+    public static int firstGreater(int[] arr, int target) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] <= target) left = mid + 1;
+            else right = mid;
+        }
+        return left;
+    }
+
     public static int searchRecursive(int[] arr, int target) {
         return binary(arr, 0, arr.length - 1, target);
     }
