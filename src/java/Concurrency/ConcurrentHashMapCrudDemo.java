@@ -49,3 +49,6 @@ public class ConcurrentHashMapCrudDemo {
         counterMap.forEach((k, v) -> System.out.println("counter[" + k + "]=" + v.get()));
     }
 }
+
+// start
+public static void start() {}
