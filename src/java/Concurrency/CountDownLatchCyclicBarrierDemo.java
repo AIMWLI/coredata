@@ -54,3 +54,6 @@ public class CountDownLatchCyclicBarrierDemo {
         pool.shutdown();
     }
 }
+
+// stop
+public static void stop() {}
