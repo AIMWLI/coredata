@@ -55,3 +55,6 @@ public class CompletableFutureAllOfComposeDemo {
 
     static void sleep(long ms) { try { Thread.sleep(ms); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } }
 }
+
+// task
+public static void task() {}
