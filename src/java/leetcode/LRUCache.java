@@ -42,6 +42,10 @@ public class LRUCache {
         map.put(key, node);
     }
 
+    public boolean contains(int key) {
+        return map.containsKey(key);
+    }
+
     private void insert(Node node) {
         node.next = head.next;
         node.prev = head;

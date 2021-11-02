@@ -21,6 +21,7 @@ public class ThreadLocalLeakDemo {
         }
         pool.shutdown();
         try { pool.awaitTermination(1, TimeUnit.SECONDS); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+        System.out.println("thread local demo done");
     }
 
     static void processUser(int userId) {
