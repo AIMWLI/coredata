@@ -12,4 +12,14 @@ public class StringMatch {
         }
         return -1;
     }
+
+    public static int lastIndexOf(String text, String pattern) {
+        if (pattern.isEmpty()) return text.length() - 1;
+        for (int i = text.length() - pattern.length(); i >= 0; i--) {
+            int j = 0;
+            while (j < pattern.length() && text.charAt(i + j) == pattern.charAt(j)) j++;
+            if (j == pattern.length()) return i;
+        }
+        return -1;
+    }
 }

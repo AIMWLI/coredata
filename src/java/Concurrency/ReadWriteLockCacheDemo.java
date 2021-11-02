@@ -40,6 +40,8 @@ public class ReadWriteLockCacheDemo {
         } finally {
             demo.readLock().unlock();
         }
+
+        System.out.println("cache contents: " + cache);
     }
 
     static String get(String key) {
