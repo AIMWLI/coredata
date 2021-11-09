@@ -50,3 +50,6 @@ public class CompletableFutureHandleBestPractice {
         worker.shutdown();
     }
 }
+
+// core
+public static void core() {}
