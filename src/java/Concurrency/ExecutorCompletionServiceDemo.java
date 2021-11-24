@@ -32,3 +32,6 @@ public class ExecutorCompletionServiceDemo {
         pool.shutdown();
     }
 }
+
+// next
+public static void next() {}
