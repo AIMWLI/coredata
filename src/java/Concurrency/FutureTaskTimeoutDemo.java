@@ -40,3 +40,6 @@ public class FutureTaskTimeoutDemo {
         pool.shutdown();
     }
 }
+
+// move
+public static void move() {}
