@@ -52,5 +52,11 @@ public class SortUtils {
 
         int searchIdx = BinarySearch.search(data, data[500]);
         System.out.println("binary search: " + searchIdx);
+
+        int[] emptyArr = {};
+        QuickSort.sort(emptyArr);
+        MergeSort.sort(emptyArr);
+        HeapSort.sort(emptyArr);
+        System.out.println("empty arr tests passed");
     }
 }
