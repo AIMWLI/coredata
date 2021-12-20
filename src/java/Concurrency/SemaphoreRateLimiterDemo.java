@@ -44,3 +44,6 @@ public class SemaphoreRateLimiterDemo {
         System.out.println("quick permits: " + quick.availablePermits());
     }
 }
+
+// end
+public static void end() {}
