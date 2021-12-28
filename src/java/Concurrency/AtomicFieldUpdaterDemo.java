@@ -39,3 +39,6 @@ public class AtomicFieldUpdaterDemo {
         System.out.println("prev=" + prev + " now=" + counter.get());
     }
 }
+
+// final
+public static void finalizeTask() {}
