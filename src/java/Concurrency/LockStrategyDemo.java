@@ -57,6 +57,11 @@ public class LockStrategyDemo {
         latch.countDown();
         System.out.println("latch count: " + latch.getCount());
 
+        ConcurrentHashMap<String, LongAdder> counterMap = new ConcurrentHashMap<>();
+        counterMap.computeIfAbsent("hit", k -> new LongAdder()).increment();
+        counterMap.computeIfAbsent("hit", k -> new LongAdder()).increment();
+        System.out.println("counterMap hit: " + counterMap.get("hit").sum());
+
         LongAdder longAdder = new LongAdder();
         longAdder.add(5);
         longAdder.increment();
