@@ -46,6 +46,15 @@ public class CompletableFutureChainDemo {
         String timedResult = withTimeout.get(2, TimeUnit.SECONDS);
         System.out.println("timed: " + timedResult);
 
+        CompletableFuture<Integer> allHandle = CompletableFuture.allOf(cfA, cfB)
+            .handle((v, ex) -> {
+                if (ex != null) {
+                    return -1;
+                }
+                return 1;
+            });
+        System.out.println("allHandle: " + allHandle.get(1, TimeUnit.SECONDS));
+
         workerExecutor.shutdown();
     }
 }
