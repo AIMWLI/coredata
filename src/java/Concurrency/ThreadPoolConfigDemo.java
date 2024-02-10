@@ -31,5 +31,9 @@ public class ThreadPoolConfigDemo {
         ScheduledExecutorService schedulePool = Executors.newScheduledThreadPool(2);
         schedulePool.schedule(() -> System.out.println("scheduled task"), 100, TimeUnit.MILLISECONDS);
         schedulePool.shutdown();
+
+        System.out.println("io pool core: " + ioPool.getCorePoolSize());
+        System.out.println("io pool max: " + ioPool.getMaximumPoolSize());
+        System.out.println("keepAlive: " + ioPool.getKeepAliveTime(TimeUnit.SECONDS) + "s");
     }
 }
