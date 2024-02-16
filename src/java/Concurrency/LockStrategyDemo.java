@@ -41,6 +41,13 @@ public class LockStrategyDemo {
             holder.increment();
         }
         System.out.println("holder: " + holder.get());
+
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        for (int i = 0; i < 5; i++) {
+            pool.submit(() -> counter.incrementAndGet());
+        }
+        pool.shutdown();
+        System.out.println("counter after pool: " + counter.get());
     }
 
     static class CounterHolder {
