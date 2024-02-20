@@ -67,6 +67,9 @@ public class CompletableFutureDemo {
         });
         System.out.println("allOf: " + allOf.join());
 
+        String immediate = CompletableFuture.completedFuture("direct").getNow("nope");
+        System.out.println("immediate: " + immediate);
+
         errorFuture.handle((result, ex) -> {
             if (ex != null) {
                 return "fallback";
