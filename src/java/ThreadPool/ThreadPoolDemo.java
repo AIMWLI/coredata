@@ -80,8 +80,18 @@ public class ThreadPoolDemo {
             },
             new ThreadPoolExecutor.AbortPolicy()
         );
+        System.out.println("named exec pool size: " + namedExecutor.getPoolSize());
         namedExecutor.execute(() -> System.out.println(Thread.currentThread().getName()));
         namedExecutor.shutdown();
+
+        ThreadPoolExecutor withStats = new ThreadPoolExecutor(
+            2, 4, 60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(20),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        withStats.execute(() -> System.out.println(Thread.currentThread().getName()));
+        withStats.shutdown();
 
         System.out.println("active: " + executor.getActiveCount());
         System.out.println("completed: " + executor.getCompletedTaskCount());
