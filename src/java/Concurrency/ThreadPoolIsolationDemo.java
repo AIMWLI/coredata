@@ -47,6 +47,9 @@ public class ThreadPoolIsolationDemo {
             Thread.currentThread().interrupt();
         }
 
+        System.out.println("worker pool active: " + ((ThreadPoolExecutor) workerExecutor).getActiveCount());
+        System.out.println("cpu pool active: " + ((ThreadPoolExecutor) cpuExecutor).getActiveCount());
+
         workerExecutor.shutdown();
         cpuExecutor.shutdown();
     }
