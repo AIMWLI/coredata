@@ -48,6 +48,13 @@ public class ThreadPoolIsolationDemo {
         }
 
         System.out.println("worker pool queue: " + ((ThreadPoolExecutor) workerExecutor).getQueue().size());
+
+        ExecutorService fixedPool = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 3; i++) {
+            int taskId = i;
+            fixedPool.execute(() -> System.out.println("fixed pool " + taskId));
+        }
+        fixedPool.shutdown();
         System.out.println("worker pool active: " + ((ThreadPoolExecutor) workerExecutor).getActiveCount());
         System.out.println("cpu pool active: " + ((ThreadPoolExecutor) cpuExecutor).getActiveCount());
 
