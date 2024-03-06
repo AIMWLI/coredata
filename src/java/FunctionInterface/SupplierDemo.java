@@ -36,6 +36,9 @@ public class SupplierDemo {
         Supplier<String> osNameSupplier = () -> System.getProperty("os.name");
         System.out.println("os.name: " + osNameSupplier.get());
 
+        Supplier<String> lineSepSupplier = () -> System.getProperty("line.separator");
+        System.out.println("line.sep: " + lineSepSupplier.get().length() + " chars");
+
         Supplier<String> osVersionSupplier = () -> System.getProperty("os.version");
         System.out.println("os.version: " + osVersionSupplier.get());
 
