@@ -47,6 +47,10 @@ public class ConsumerDemo {
         Consumer<Integer> printInt = System.out::println;
         printInt.accept(42);
 
+        Consumer<String> prefix = s -> System.out.print("prefix:");
+        Consumer<String> suffix = s -> System.out.println(":suffix");
+        prefix.andThen(s -> System.out.print(s)).andThen(suffix).accept("middle");
+
         while (true) {
             Consumer<String> consumer = System.out::println;
             Scanner scanner = new Scanner(System.in);
