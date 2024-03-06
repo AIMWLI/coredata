@@ -1,6 +1,7 @@
 package ThreadPool;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolDemo {
 
@@ -30,6 +31,16 @@ public class ThreadPoolDemo {
             Executors.defaultThreadFactory(),
             new ThreadPoolExecutor.AbortPolicy()
         );
+
+        AtomicInteger threadNum = new AtomicInteger(1);
+        ThreadPoolExecutor namedPool = new ThreadPoolExecutor(
+            2, 4, 30L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(10),
+            r -> new Thread(r, "worker-" + threadNum.getAndIncrement()),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        namedPool.execute(() -> System.out.println(Thread.currentThread().getName()));
+        namedPool.shutdown();
 
         ThreadPoolExecutor syncQueue = new ThreadPoolExecutor(
             1, 2, 0L, TimeUnit.SECONDS,
