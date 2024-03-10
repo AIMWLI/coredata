@@ -49,6 +49,8 @@ public class ThreadPoolIsolationDemo {
 
         System.out.println("worker pool queue: " + ((ThreadPoolExecutor) workerExecutor).getQueue().size());
 
+        System.out.println("warn: parallel stream uses ForkJoinPool, not worker");
+
         ExecutorService fixedPool = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 3; i++) {
             int taskId = i;
