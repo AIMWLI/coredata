@@ -33,6 +33,10 @@ public class FunctionDemo {
         System.out.println("compose: " + multiply.compose(addThree).apply(5));
         System.out.println("andThen: " + multiply.andThen(addThree).apply(5));
 
+        Function<String, String> trimFunc = String::trim;
+        Function<String, String> upperFunc = String::toUpperCase;
+        System.out.println("trim upper: " + trimFunc.andThen(upperFunc).apply("  hello  "));
+
         Function<String, Integer> parseIntFunc = Integer::parseInt;
         System.out.println("parseInt: " + parseIntFunc.apply("42"));
 
