@@ -44,6 +44,10 @@ public class PredicateDemo {
             }
         }
 
+        Predicate<String> startsWith = s -> s.startsWith("h");
+        Predicate<String> endsWith = s -> s.endsWith("o");
+        System.out.println("starts h and ends o: " + startsWith.and(endsWith).test("hello"));
+
         Predicate<Integer> between = x -> x > 10 && x < 20;
         System.out.println("between 15: " + between.test(15));
         System.out.println("between 25: " + between.test(25));
