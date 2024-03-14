@@ -30,6 +30,9 @@ public class SupplierDemo {
         Supplier<String> propertySupplier = () -> System.getProperty("java.version");
         System.out.println("java.version: " + propertySupplier.get());
 
+        Supplier<String> upperSupplier = () -> "hello".toUpperCase();
+        System.out.println("upper: " + upperSupplier.get());
+
         Supplier<String> threadNameSupplier = () -> Thread.currentThread().getName();
         System.out.println("thread: " + threadNameSupplier.get());
 
