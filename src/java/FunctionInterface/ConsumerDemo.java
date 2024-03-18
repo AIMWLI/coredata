@@ -33,6 +33,10 @@ public class ConsumerDemo {
             printItem.accept(item);
         }
 
+        Consumer<String> trimConsumer = s -> System.out.println(s.trim());
+        Consumer<String> chainAccept = trimConsumer.andThen(s -> System.out.println(s.length()));
+        chainAccept.accept("  spaced  ");
+
         Consumer<String> emptyString = s -> {
             if (s.isEmpty()) {
                 System.out.println("empty string");
