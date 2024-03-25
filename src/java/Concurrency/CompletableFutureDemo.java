@@ -36,6 +36,17 @@ public class CompletableFutureDemo {
             throw new RuntimeException("fail");
         }, workerExecutor);
 
+        CompletableFuture<String> allOf = CompletableFuture.allOf(
+            CompletableFuture.supplyAsync(() -> "a", workerExecutor),
+            CompletableFuture.supplyAsync(() -> "b", workerExecutor)
+        ).handle((v, ex) -> {
+            if (ex != null) {
+                return "error";
+            }
+            return "ok";
+        });
+        System.out.println("allOf: " + allOf.join());
+
         errorFuture.handle((result, ex) -> {
             if (ex != null) {
                 return "fallback";
