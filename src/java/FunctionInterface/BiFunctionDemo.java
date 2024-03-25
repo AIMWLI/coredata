@@ -21,6 +21,9 @@ public class BiFunctionDemo {
         BinaryOperator<Integer> min = BinaryOperator.minBy(Integer::compare);
         System.out.println("min: " + min.apply(8, 3));
 
+        BiFunction<String, String, String> concat = (a, b) -> a + b;
+        System.out.println("concat: " + concat.apply("a", "b"));
+
         BiFunction<String, String, Integer> compareTo = String::compareTo;
         System.out.println("compare a b: " + compareTo.apply("a", "b"));
     }
