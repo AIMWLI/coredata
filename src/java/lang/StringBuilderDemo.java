@@ -45,5 +45,12 @@ public class StringBuilderDemo {
         StringBuilder chars = new StringBuilder("abc");
         chars.setCharAt(1, 'B');
         System.out.println("setCharAt: " + chars.toString());
+
+        StringBuilder appendChain = new StringBuilder();
+        appendChain.append("a").append("b").append("c");
+        System.out.println("appendChain: " + appendChain.toString());
+
+        System.out.println("length: " + appendChain.length());
+        System.out.println("charAt 1: " + appendChain.charAt(1));
     }
 }
