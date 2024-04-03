@@ -20,6 +20,10 @@ public class MapComputeDemo {
         map.computeIfAbsent("e", k -> 5);
         System.out.println("e: " + map.get("e"));
 
+        map.put("f", null);
+        map.computeIfPresent("f", (k, v) -> v + 1);
+        System.out.println("f: " + map.get("f"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
