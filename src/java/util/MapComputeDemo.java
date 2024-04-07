@@ -43,6 +43,10 @@ public class MapComputeDemo {
         map.putIfAbsent("a", 100);
         System.out.println("a after putIfAbsent: " + map.get("a"));
 
+        map.put("x", null);
+        map.merge("x", 1, (o, n) -> o == null ? n : o + n);
+        System.out.println("x merge: " + map.get("x"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
