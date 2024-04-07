@@ -21,6 +21,9 @@ public class BiFunctionDemo {
         BinaryOperator<Integer> min = BinaryOperator.minBy(Integer::compare);
         System.out.println("min: " + min.apply(8, 3));
 
+        BiFunction<Integer, Integer, Integer> maxOf = (a, b) -> a >= b ? a : b;
+        System.out.println("maxOf: " + maxOf.apply(10, 7));
+
         BiFunction<Integer, Integer, String> compare = (a, b) -> a > b ? "gt" : "lte";
         System.out.println("compare: " + compare.apply(5, 3));
 
