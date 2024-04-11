@@ -22,6 +22,9 @@ public class OptionalDemo {
         Optional<String> trimmed = mapped.map(String::trim);
         trimmed.ifPresent(s -> System.out.println("trimmed: " + s));
 
+        Optional<String> optionalMap = Optional.of("test");
+        optionalMap.map(String::toUpperCase).ifPresent(s -> System.out.println("mapped: " + s));
+
         Optional<String> throwIfEmpty = Optional.empty();
         try {
             throwIfEmpty.orElseThrow(() -> new RuntimeException("no value"));
