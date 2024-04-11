@@ -48,6 +48,10 @@ public class LockStrategyDemo {
         }
         pool.shutdown();
         System.out.println("counter after pool: " + counter.get());
+
+        ConcurrentHashMap<String, AtomicLong> stats = new ConcurrentHashMap<>();
+        stats.computeIfAbsent("hits", k -> new AtomicLong(0)).incrementAndGet();
+        System.out.println("stats hits: " + stats.get("hits").get());
     }
 
     static class CounterHolder {
