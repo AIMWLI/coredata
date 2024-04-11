@@ -34,5 +34,10 @@ public class Test {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " = " + entry.getValue());
         }
+
+        map.remove("3");
+        System.out.println("after remove: " + map.size());
+        map.clear();
+        System.out.println("after clear: " + map.isEmpty());
     }
 }
