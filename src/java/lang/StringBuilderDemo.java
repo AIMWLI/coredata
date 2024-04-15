@@ -68,5 +68,13 @@ public class StringBuilderDemo {
 
         StringBuilder sb3 = new StringBuilder(50);
         System.out.println("initial capacity: " + sb3.capacity());
+
+        StringBuilder del = new StringBuilder("hello world");
+        del.deleteCharAt(0);
+        System.out.println("delCharAt: " + del.toString());
+
+        StringBuilder ins = new StringBuilder("hello");
+        ins.insert(1, "xxx");
+        System.out.println("insert: " + ins.toString());
     }
 }
