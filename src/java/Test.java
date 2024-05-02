@@ -42,16 +42,18 @@ public class Test {
 
         map.put("x", 1);
         map.put("y", 2);
+        Map<String, Object> copy = new HashMap<>();
+        copy.putAll(map);
+        System.out.println("copy size: " + copy.size());
+
         System.out.println("size: " + map.size());
         System.out.println("empty: " + map.isEmpty());
-
         System.out.println("map eq: " + map.equals(copy));
 
         map.replaceAll((k, v) -> String.valueOf(v) + "_");
         map.forEach((k, v) -> System.out.println(k + ":" + v));
 
-        Map<String, Object> copy = new HashMap<>();
-        copy.putAll(map);
-        System.out.println("copy size: " + copy.size());
+        map.replace("y", 99);
+        System.out.println("y after replace: " + map.get("y"));
     }
 }

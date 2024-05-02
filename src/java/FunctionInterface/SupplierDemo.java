@@ -49,10 +49,7 @@ public class SupplierDemo {
         System.out.println("maxLong: " + maxLongSupplier.get());
 
         Supplier<String> upperSupplier = () -> "hello".toUpperCase();
-        System.out.println("os.name: " + osNameSupplier.get());
-
-        Supplier<Long> maxLongSupplier = () -> Long.MAX_VALUE;
-        System.out.println("maxLong: " + maxLongSupplier.get());
+        System.out.println("upper: " + upperSupplier.get());
 
         Supplier<String> threadNameSupplier = () -> Thread.currentThread().getName();
         System.out.println("thread: " + threadNameSupplier.get());
