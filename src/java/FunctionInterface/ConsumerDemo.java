@@ -2,7 +2,6 @@ package FunctionInterface;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.function.Consumer;
 
 /**
@@ -71,10 +70,11 @@ public class ConsumerDemo {
         Consumer<String> suffix = s -> System.out.println(":suffix");
         prefix.andThen(s -> System.out.print(s)).andThen(suffix).accept("middle");
 
-        while (true) {
-            Consumer<String> consumer = System.out::println;
-            Scanner scanner = new Scanner(System.in);
-            consumer.accept(scanner.nextLine());
-        }
+        Consumer<String> logUpper = s -> System.out.println("upper: " + s.toUpperCase());
+        Consumer<String> logLen = s -> System.out.println("len: " + s.length());
+        logUpper.andThen(logLen).accept("chainTest");
+
+        Consumer<String> printHash = s -> System.out.println("hash: " + s.hashCode());
+        printHash.accept("hashTest");
     }
 }
