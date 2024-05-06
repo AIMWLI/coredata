@@ -30,6 +30,9 @@ public class SupplierDemo {
         Supplier<String> propertySupplier = () -> System.getProperty("java.version");
         System.out.println("java.version: " + propertySupplier.get());
 
+        Supplier<Integer> hashCodeSupplier = () -> "hello".hashCode();
+        System.out.println("hashCode: " + hashCodeSupplier.get());
+
         Supplier<String> upperSupplier = () -> "hello".toUpperCase();
         System.out.println("upper: " + upperSupplier.get());
 
