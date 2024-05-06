@@ -44,6 +44,9 @@ public class PredicateDemo {
             }
         }
 
+        Predicate<Integer> lessThan100 = x -> x < 100;
+        System.out.println("gt10 and lt100 50: " + gt10.and(lessThan100).test(50));
+
         Predicate<String> startsWith = s -> s.startsWith("h");
         Predicate<String> endsWith = s -> s.endsWith("o");
         System.out.println("starts h and ends o: " + startsWith.and(endsWith).test("hello"));
@@ -62,9 +65,5 @@ public class PredicateDemo {
         Predicate<String> valid = notNull.and(notEmpty);
         System.out.println("valid hello: " + valid.test("hello"));
         System.out.println("valid null: " + valid.test(null));
-            if (gt10.test(n)) {
-                System.out.println(n + " gt10");
-            }
-        }
     }
 }
