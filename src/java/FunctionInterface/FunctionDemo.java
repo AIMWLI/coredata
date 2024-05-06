@@ -40,6 +40,9 @@ public class FunctionDemo {
         Function<String, Integer> parseIntFunc = Integer::parseInt;
         System.out.println("parseInt: " + parseIntFunc.apply("42"));
 
+        Function<String, Character> firstChar = s -> s.charAt(0);
+        System.out.println("firstChar: " + firstChar.apply("hello"));
+
         Function<String, Integer> strLen = String::length;
         System.out.println("strLen hello: " + strLen.apply("hello"));
 
