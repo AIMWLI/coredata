@@ -98,5 +98,10 @@ public class PredicateDemo {
         Predicate<Integer> isDivisibleBy3 = x -> x % 3 == 0;
         System.out.println("divisible by 3 9: " + isDivisibleBy3.test(9));
         System.out.println("divisible by 3 10: " + isDivisibleBy3.test(10));
+
+        Predicate<String> isNullOrEmpty = s -> s == null || s.isEmpty();
+        System.out.println("null or empty null: " + isNullOrEmpty.test(null));
+        System.out.println("null or empty '': " + isNullOrEmpty.test(""));
+        System.out.println("null or empty 'a': " + isNullOrEmpty.test("a"));
     }
 }
