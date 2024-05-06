@@ -86,6 +86,18 @@ public class FunctionDemo {
         };
         System.out.println("grade 85: " + grade.apply(85));
         System.out.println("grade 60: " + grade.apply(60));
+
+        Function<String, String> appendDot = s -> s + ".";
+        System.out.println("appendDot: " + appendDot.apply("end"));
+
+        Function<String, String> trimThenUpper = ((Function<String, String>) String::trim).andThen(String::toUpperCase);
+        System.out.println("trimUpper: " + trimThenUpper.apply("  test  "));
+
+        Function<Integer, Integer> square = x -> x * x;
+        System.out.println("square 6: " + square.apply(6));
+
+        Function<Integer, String> binaryStr = Integer::toBinaryString;
+        System.out.println("binary 42: " + binaryStr.apply(42));
     }
 
 }
