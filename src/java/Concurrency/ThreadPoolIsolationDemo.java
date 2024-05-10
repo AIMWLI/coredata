@@ -59,6 +59,7 @@ public class ThreadPoolIsolationDemo {
         fixedPool.shutdown();
         System.out.println("worker pool active: " + ((ThreadPoolExecutor) workerExecutor).getActiveCount());
         System.out.println("cpu pool active: " + ((ThreadPoolExecutor) cpuExecutor).getActiveCount());
+        System.out.println("worker completed: " + ((ThreadPoolExecutor) workerExecutor).getCompletedTaskCount());
 
         CompletableFuture.runAsync(() -> System.out.println("cf on worker"), workerExecutor)
             .handle((v, ex) -> {
