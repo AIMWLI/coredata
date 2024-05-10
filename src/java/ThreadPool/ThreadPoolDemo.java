@@ -135,5 +135,19 @@ public class ThreadPoolDemo {
             new ThreadPoolExecutor.CallerRunsPolicy()
         );
         callerRuns.shutdown();
+
+        ThreadPoolExecutor maxCore = new ThreadPoolExecutor(
+            5, 10, 60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(50),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        maxCore.prestartAllCoreThreads();
+        System.out.println("maxCore pool: " + maxCore.getPoolSize());
+        maxCore.shutdown();
+
+        System.out.println("corePoolSize: " + executor.getCorePoolSize());
+        System.out.println("maxPoolSize: " + executor.getMaximumPoolSize());
+        System.out.println("keepAliveTime: " + executor.getKeepAliveTime(TimeUnit.SECONDS));
     }
 }
