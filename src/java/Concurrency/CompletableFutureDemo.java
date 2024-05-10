@@ -77,6 +77,16 @@ public class CompletableFutureDemo {
             return result;
         }).thenAccept(v -> System.out.println("recovered: " + v));
 
+        CompletableFuture<Integer> supplyHandle = CompletableFuture.supplyAsync(() -> {
+            return 100;
+        }, workerExecutor).handle((v, ex) -> {
+            if (ex != null) {
+                return 0;
+            }
+            return v + 50;
+        });
+        System.out.println("supplyHandle: " + supplyHandle.join());
+
         workerExecutor.shutdown();
     }
 }
