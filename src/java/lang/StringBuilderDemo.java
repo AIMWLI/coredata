@@ -76,5 +76,20 @@ public class StringBuilderDemo {
         StringBuilder ins = new StringBuilder("hello");
         ins.insert(1, "xxx");
         System.out.println("insert: " + ins.toString());
+
+        StringBuilder code = new StringBuilder();
+        code.append("public").append(" class").append(" Test");
+        System.out.println("code: " + code.toString());
+
+        StringBuilder sub = new StringBuilder("hello world");
+        String subStr = sub.substring(3, 8);
+        System.out.println("substr: " + subStr);
+
+        StringBuilder cap = new StringBuilder(10);
+        System.out.println("cap init: " + cap.capacity());
+        for (int i = 0; i < 5; i++) {
+            cap.append("data");
+        }
+        System.out.println("cap after: " + cap.capacity());
     }
 }
