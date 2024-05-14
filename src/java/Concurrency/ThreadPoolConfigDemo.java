@@ -35,5 +35,16 @@ public class ThreadPoolConfigDemo {
         System.out.println("io pool core: " + ioPool.getCorePoolSize());
         System.out.println("io pool max: " + ioPool.getMaximumPoolSize());
         System.out.println("keepAlive: " + ioPool.getKeepAliveTime(TimeUnit.SECONDS) + "s");
+        System.out.println("io largest: " + ioPool.getLargestPoolSize());
+
+        ThreadPoolExecutor scheduledWrap = new ThreadPoolExecutor(
+            2, 4, 30L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(20),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        scheduledWrap.execute(() -> System.out.println("scheduledWrap task"));
+        System.out.println("scheduledWrap active: " + scheduledWrap.getActiveCount());
+        scheduledWrap.shutdown();
     }
 }
