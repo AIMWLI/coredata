@@ -39,5 +39,10 @@ public class Test {
         System.out.println("after remove: " + map.size());
         map.clear();
         System.out.println("after clear: " + map.isEmpty());
+
+        map.put("x", 1);
+        map.put("y", 2);
+        System.out.println("size: " + map.size());
+        System.out.println("empty: " + map.isEmpty());
     }
 }
