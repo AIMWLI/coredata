@@ -25,6 +25,9 @@ public class OptionalDemo {
         Optional<String> optionalMap = Optional.of("test");
         optionalMap.map(String::toUpperCase).ifPresent(s -> System.out.println("mapped: " + s));
 
+        Optional<String> filteredOpt = Optional.of("abc");
+        filteredOpt.filter(s -> s.length() == 3).ifPresent(s -> System.out.println("filtered: " + s));
+
         Optional<String> throwIfEmpty = Optional.empty();
         try {
             throwIfEmpty.orElseThrow(() -> new RuntimeException("no value"));
