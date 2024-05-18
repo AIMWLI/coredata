@@ -50,5 +50,11 @@ public class MapComputeDemo {
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
+
+        map.compute("x", (k, v) -> v == null ? 0 : v + 1);
+        map.computeIfAbsent("y", k -> 10);
+        map.computeIfPresent("x", (k, v) -> v * 2);
+        System.out.println("x after compute: " + map.get("x"));
+        System.out.println("y after compute: " + map.get("y"));
     }
 }
