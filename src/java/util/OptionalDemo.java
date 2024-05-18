@@ -49,5 +49,14 @@ public class OptionalDemo {
         } catch (RuntimeException e) {
             System.out.println("caught: " + e.getMessage());
         }
+
+        Optional<String> ifPresentEx = Optional.of("hello");
+        ifPresentEx.ifPresent(s -> System.out.println("ifPresent: " + s));
+
+        Optional<Integer> mapChain = Optional.of("abc").map(String::length);
+        System.out.println("mapChain: " + mapChain.get());
+
+        Optional<String> flatFilter = Optional.of(" hello ").flatMap(s -> Optional.of(s.trim()));
+        flatFilter.ifPresent(s -> System.out.println("flatFilter: " + s));
     }
 }
