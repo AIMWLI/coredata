@@ -55,6 +55,16 @@ public class CompletableFutureChainDemo {
             });
         System.out.println("allHandle: " + allHandle.get(1, TimeUnit.SECONDS));
 
+        CompletableFuture<String> chainHandle = CompletableFuture.supplyAsync(() -> "start", workerExecutor)
+            .thenApplyAsync(r -> r + "+middle", workerExecutor)
+            .handle((r, ex) -> {
+                if (ex != null) {
+                    return "error";
+                }
+                return r + "+end";
+            });
+        System.out.println("chainHandle: " + chainHandle.get(2, TimeUnit.SECONDS));
+
         workerExecutor.shutdown();
     }
 }
