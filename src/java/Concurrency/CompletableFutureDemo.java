@@ -36,6 +36,15 @@ public class CompletableFutureDemo {
             throw new RuntimeException("fail");
         }, workerExecutor);
 
+        CompletableFuture<Integer> asyncHandle = CompletableFuture.supplyAsync(() -> 42, workerExecutor)
+            .handleAsync((v, ex) -> {
+                if (ex != null) {
+                    return -1;
+                }
+                return v * 2;
+            }, workerExecutor);
+        System.out.println("asyncHandle: " + asyncHandle.join());
+
         CompletableFuture<String> allOf = CompletableFuture.allOf(
             CompletableFuture.supplyAsync(() -> "a", workerExecutor),
             CompletableFuture.supplyAsync(() -> "b", workerExecutor)
