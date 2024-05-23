@@ -52,6 +52,14 @@ public class LockStrategyDemo {
         ConcurrentHashMap<String, AtomicLong> stats = new ConcurrentHashMap<>();
         stats.computeIfAbsent("hits", k -> new AtomicLong(0)).incrementAndGet();
         System.out.println("stats hits: " + stats.get("hits").get());
+
+        ReadWriteLock rwLock = new ReentrantReadWriteLock();
+        rwLock.readLock().lock();
+        try {
+            System.out.println("read lock acquired");
+        } finally {
+            rwLock.readLock().unlock();
+        }
     }
 
     static class CounterHolder {
