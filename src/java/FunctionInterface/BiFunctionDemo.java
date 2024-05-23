@@ -38,5 +38,26 @@ public class BiFunctionDemo {
 
         BiFunction<String, String, Integer> compareTo = String::compareTo;
         System.out.println("compare a b: " + compareTo.apply("a", "b"));
+
+        BiFunction<Integer, Integer, Integer> divide = (a, b) -> {
+            if (b == 0) {
+                return 0;
+            }
+            return a / b;
+        };
+        System.out.println("divide: " + divide.apply(10, 2));
+        System.out.println("divide by 0: " + divide.apply(10, 0));
+
+        BinaryOperator<String> stringMin = BinaryOperator.minBy(String::compareTo);
+        System.out.println("stringMin: " + stringMin.apply("apple", "banana"));
+
+        BiFunction<String, Integer, String> repeatStr = (s, n) -> {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < n; i++) {
+                sb.append(s);
+            }
+            return sb.toString();
+        };
+        System.out.println("repeatStr: " + repeatStr.apply("ab", 3));
     }
 }
