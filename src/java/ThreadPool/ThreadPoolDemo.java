@@ -42,6 +42,15 @@ public class ThreadPoolDemo {
         namedPool.execute(() -> System.out.println(Thread.currentThread().getName()));
         namedPool.shutdown();
 
+        ThreadPoolExecutor singlePool = new ThreadPoolExecutor(
+            1, 1, 0L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        singlePool.execute(() -> System.out.println("single pool task"));
+        singlePool.shutdown();
+
         ThreadPoolExecutor cachedPool = new ThreadPoolExecutor(
             0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
             new SynchronousQueue<>(),
