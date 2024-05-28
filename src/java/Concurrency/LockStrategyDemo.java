@@ -91,6 +91,15 @@ public class LockStrategyDemo {
         } finally {
             rwLock.readLock().unlock();
         }
+
+        ConcurrentHashMap<String, String> stringCache = new ConcurrentHashMap<>();
+        stringCache.put("key1", "value1");
+        stringCache.computeIfAbsent("key2", k -> "computed");
+        System.out.println("stringCache: " + stringCache.get("key2"));
+
+        AtomicLong compareAndSetVal = new AtomicLong(50);
+        compareAndSetVal.compareAndSet(50, 100);
+        System.out.println("casVal: " + compareAndSetVal.get());
     }
 
     static class CounterHolder {
