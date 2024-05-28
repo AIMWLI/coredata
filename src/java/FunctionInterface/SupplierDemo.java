@@ -74,5 +74,15 @@ public class SupplierDemo {
             return 1;
         };
         System.out.println("prime9973: " + primeSup.get());
+
+        Supplier<Integer> charCodeSum = () -> {
+            String s = "lambda";
+            int sum = 0;
+            for (int i = 0; i < s.length(); i++) {
+                sum += s.charAt(i);
+            }
+            return sum;
+        };
+        System.out.println("charCodeSum: " + charCodeSum.get());
     }
 }
