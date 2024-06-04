@@ -47,6 +47,10 @@ public class ConsumerDemo {
         Consumer<Integer> printInt = System.out::println;
         printInt.accept(42);
 
+        Consumer<String> logBefore = s -> System.out.println("before: " + s);
+        Consumer<String> logAfter = s -> System.out.println("after: " + s);
+        logBefore.andThen(s -> System.out.println("process: " + s)).andThen(logAfter).accept("data");
+
         Consumer<String> prefix = s -> System.out.print("prefix:");
         Consumer<String> suffix = s -> System.out.println(":suffix");
         prefix.andThen(s -> System.out.print(s)).andThen(suffix).accept("middle");
