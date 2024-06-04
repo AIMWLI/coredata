@@ -24,6 +24,10 @@ public class MapComputeDemo {
         map.computeIfPresent("f", (k, v) -> v + 1);
         System.out.println("f: " + map.get("f"));
 
+        map.put("g", 100);
+        map.compute("g", (k, v) -> v / 2);
+        System.out.println("g: " + map.get("g"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
