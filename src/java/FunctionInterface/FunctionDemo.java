@@ -98,6 +98,12 @@ public class FunctionDemo {
 
         Function<Integer, String> binaryStr = Integer::toBinaryString;
         System.out.println("binary 42: " + binaryStr.apply(42));
+
+        Function<String, String> padCenter = s -> String.format("%-10s", s);
+        System.out.println("pad: '" + padCenter.apply("hi") + "'");
+
+        Function<String, Integer> countWords = s -> s.trim().isEmpty() ? 0 : s.trim().split("\\s+").length;
+        System.out.println("words: " + countWords.apply("a b c d"));
     }
 
 }
