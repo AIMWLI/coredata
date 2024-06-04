@@ -103,5 +103,7 @@ public class PredicateDemo {
         System.out.println("null or empty null: " + isNullOrEmpty.test(null));
         System.out.println("null or empty '': " + isNullOrEmpty.test(""));
         System.out.println("null or empty 'a': " + isNullOrEmpty.test("a"));
-    }
-}
+
+        Predicate<Integer> isPowerOfTwo = x -> x > 0 && (x & (x - 1)) == 0;
+        System.out.println("powerOfTwo 8: " + isPowerOfTwo.test(8));
+        System.out.println("powerOfTwo 10: " + isPowerOfTwo.test(10));
