@@ -149,5 +149,16 @@ public class ThreadPoolDemo {
         System.out.println("corePoolSize: " + executor.getCorePoolSize());
         System.out.println("maxPoolSize: " + executor.getMaximumPoolSize());
         System.out.println("keepAliveTime: " + executor.getKeepAliveTime(TimeUnit.SECONDS));
+
+        ThreadPoolExecutor rejectCounter = new ThreadPoolExecutor(
+            1, 1, 0L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            (r, e) -> System.out.println("rejected: " + r.toString())
+        );
+        rejectCounter.execute(() -> System.out.println("rc task"));
+        rejectCounter.shutdown();
+
+        System.out.println("queue remaining: " + executor.getQueue().remainingCapacity());
     }
 }
