@@ -39,6 +39,10 @@ public class BiFunctionDemo {
         BiFunction<String, String, Integer> compareTo = String::compareTo;
         System.out.println("compare a b: " + compareTo.apply("a", "b"));
 
+        BiFunction<Integer, Integer, Boolean> isFactor = (a, b) -> b != 0 && a % b == 0;
+        System.out.println("isFactor 10 2: " + isFactor.apply(10, 2));
+        System.out.println("isFactor 10 3: " + isFactor.apply(10, 3));
+
         BiFunction<Integer, Integer, Integer> divide = (a, b) -> {
             if (b == 0) {
                 return 0;
