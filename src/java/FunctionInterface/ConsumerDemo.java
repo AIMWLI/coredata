@@ -76,5 +76,14 @@ public class ConsumerDemo {
 
         Consumer<String> printHash = s -> System.out.println("hash: " + s.hashCode());
         printHash.accept("hashTest");
+
+        Consumer<String> printStars = s -> {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < s.length(); i++) {
+                sb.append("*");
+            }
+            System.out.println("stars: " + sb.toString());
+        };
+        printStars.accept("test");
     }
 }
