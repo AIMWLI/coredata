@@ -56,5 +56,10 @@ public class MapComputeDemo {
         map.computeIfPresent("x", (k, v) -> v * 2);
         System.out.println("x after compute: " + map.get("x"));
         System.out.println("y after compute: " + map.get("y"));
+
+        map.merge("a", 1, Integer::sum);
+        map.computeIfPresent("b", (k, v) -> v + 10);
+        System.out.println("a after merge: " + map.get("a"));
+        System.out.println("b after present: " + map.get("b"));
     }
 }
