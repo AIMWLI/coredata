@@ -57,6 +57,9 @@ public class FunctionDemo {
         System.out.println("add1 then mul2: " + add1.andThen(mul2).apply(3));
         System.out.println("mul2 then add1: " + mul2.andThen(add1).apply(3));
 
+        Function<String, String> substring = s -> s.substring(0, Math.min(s.length(), 3));
+        System.out.println("substring: " + substring.apply("hello"));
+
         Function<Integer, String> grade = x -> {
             if (x >= 90) {
                 return "A";
