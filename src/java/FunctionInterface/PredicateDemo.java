@@ -65,5 +65,9 @@ public class PredicateDemo {
         Predicate<String> valid = notNull.and(notEmpty);
         System.out.println("valid hello: " + valid.test("hello"));
         System.out.println("valid null: " + valid.test(null));
+
+        Predicate<Integer> isDivisibleBy3 = x -> x % 3 == 0;
+        System.out.println("divisible by 3 9: " + isDivisibleBy3.test(9));
+        System.out.println("divisible by 3 10: " + isDivisibleBy3.test(10));
     }
 }
