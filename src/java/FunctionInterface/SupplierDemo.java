@@ -33,6 +33,9 @@ public class SupplierDemo {
         Supplier<Integer> hashCodeSupplier = () -> "hello".hashCode();
         System.out.println("hashCode: " + hashCodeSupplier.get());
 
+        Supplier<Long> maxLongSupplier = () -> Long.MAX_VALUE;
+        System.out.println("maxLong: " + maxLongSupplier.get());
+
         Supplier<String> upperSupplier = () -> "hello".toUpperCase();
         System.out.println("upper: " + upperSupplier.get());
 
