@@ -100,6 +100,15 @@ public class LockStrategyDemo {
         AtomicLong compareAndSetVal = new AtomicLong(50);
         compareAndSetVal.compareAndSet(50, 100);
         System.out.println("casVal: " + compareAndSetVal.get());
+
+        ConcurrentHashMap<Integer, String> numMap = new ConcurrentHashMap<>();
+        numMap.put(1, "one");
+        numMap.computeIfAbsent(2, k -> "two");
+        System.out.println("numMap: " + numMap.get(2));
+
+        AtomicLong counterGet = new AtomicLong(5);
+        long oldVal = counterGet.getAndIncrement();
+        System.out.println("oldVal: " + oldVal + " newVal: " + counterGet.get());
     }
 
     static class CounterHolder {
