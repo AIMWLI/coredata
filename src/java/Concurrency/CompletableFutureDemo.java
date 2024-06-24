@@ -87,6 +87,11 @@ public class CompletableFutureDemo {
         });
         System.out.println("supplyHandle: " + supplyHandle.join());
 
+        CompletableFuture<String> handleChain = CompletableFuture.supplyAsync(() -> "base", workerExecutor)
+            .handle((v, ex) -> ex != null ? "err" : v + "+chain")
+            .handle((v, ex) -> ex != null ? "err2" : v + "+final");
+        System.out.println("handleChain: " + handleChain.join());
+
         workerExecutor.shutdown();
     }
 }
