@@ -58,5 +58,12 @@ public class OptionalDemo {
 
         Optional<String> flatFilter = Optional.of(" hello ").flatMap(s -> Optional.of(s.trim()));
         flatFilter.ifPresent(s -> System.out.println("flatFilter: " + s));
+
+        Optional<Integer> orElseOpt = Optional.empty();
+        System.out.println("orElseOpt: " + orElseOpt.orElse(42));
+
+        Optional<String> mapEmpty = Optional.empty();
+        Object mapEmptyResult = mapEmpty.map(String::length).orElse(0);
+        System.out.println("mapEmpty: " + mapEmptyResult);
     }
 }
