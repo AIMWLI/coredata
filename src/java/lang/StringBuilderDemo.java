@@ -91,5 +91,13 @@ public class StringBuilderDemo {
             cap.append("data");
         }
         System.out.println("cap after: " + cap.capacity());
+
+        StringBuilder codePoint = new StringBuilder("hello");
+        System.out.println("codePoint 0: " + codePoint.codePointAt(0));
+        System.out.println("codePointBefore 1: " + codePoint.codePointBefore(1));
+
+        StringBuilder appendInt = new StringBuilder();
+        appendInt.append(123).append(true).append(45.6);
+        System.out.println("appendInt: " + appendInt.toString());
     }
 }
