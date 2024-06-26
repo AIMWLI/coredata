@@ -52,5 +52,10 @@ public class StringBuilderDemo {
 
         System.out.println("length: " + appendChain.length());
         System.out.println("charAt 1: " + appendChain.charAt(1));
+
+        StringBuilder emptyBuilder = new StringBuilder();
+        System.out.println("empty capacity: " + emptyBuilder.capacity());
+        emptyBuilder.ensureCapacity(100);
+        System.out.println("after ensure: " + emptyBuilder.capacity());
     }
 }
