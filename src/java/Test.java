@@ -44,5 +44,9 @@ public class Test {
         map.put("y", 2);
         System.out.println("size: " + map.size());
         System.out.println("empty: " + map.isEmpty());
+
+        Map<String, Object> copy = new HashMap<>();
+        copy.putAll(map);
+        System.out.println("copy size: " + copy.size());
     }
 }
