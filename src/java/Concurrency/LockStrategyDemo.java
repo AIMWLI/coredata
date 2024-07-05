@@ -53,6 +53,15 @@ public class LockStrategyDemo {
         stats.computeIfAbsent("hits", k -> new AtomicLong(0)).incrementAndGet();
         System.out.println("stats hits: " + stats.get("hits").get());
 
+        Semaphore semaphore = new Semaphore(3);
+        try {
+            semaphore.acquire();
+            System.out.println("semaphore acquired");
+            semaphore.release();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         ReadWriteLock rwLock = new ReentrantReadWriteLock();
         rwLock.readLock().lock();
         try {
