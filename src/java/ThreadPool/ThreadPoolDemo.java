@@ -86,6 +86,9 @@ public class ThreadPoolDemo {
         System.out.println("active: " + executor.getActiveCount());
         System.out.println("completed: " + executor.getCompletedTaskCount());
 
+        executor.prestartAllCoreThreads();
+        System.out.println("pool size after prestart: " + executor.getPoolSize());
+
         Callable<String> callableTask = () -> Thread.currentThread().getName();
         Future<String> future = executor2.submit(callableTask);
         try {
