@@ -56,5 +56,13 @@ public class Test {
 
         map.replace("y", 99);
         System.out.println("y after replace: " + map.get("y"));
+
+        map.compute("x", (k, v) -> v + "_computed");
+        System.out.println("x after compute: " + map.get("x"));
+
+        map.merge("z", "newVal", (old, v) -> old + "," + v);
+        System.out.println("z after merge: " + map.get("z"));
+
+        map.forEach((k, v) -> System.out.println("final " + k + "=" + v));
     }
 }
