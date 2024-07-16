@@ -28,6 +28,14 @@ public class MapComputeDemo {
         map.compute("g", (k, v) -> v / 2);
         System.out.println("g: " + map.get("g"));
 
+        map.put("h", 5);
+        map.merge("h", 3, Integer::sum);
+        System.out.println("h: " + map.get("h"));
+
+        map.put("i", 1);
+        map.compute("i", (k, v) -> v * 10);
+        System.out.println("i: " + map.get("i"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
