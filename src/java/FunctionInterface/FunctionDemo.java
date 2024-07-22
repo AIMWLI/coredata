@@ -104,6 +104,19 @@ public class FunctionDemo {
 
         Function<String, Integer> countWords = s -> s.trim().isEmpty() ? 0 : s.trim().split("\\s+").length;
         System.out.println("words: " + countWords.apply("a b c d"));
+
+        Function<Integer, Integer> addExact = x -> Math.addExact(x, 10);
+        System.out.println("addExact: " + addExact.apply(32));
+
+        Function<String, String> defangIp = s -> s.replace(".", "[.]");
+        System.out.println("defangIp: " + defangIp.apply("192.168.1.1"));
+
+        Function<Integer, Boolean> isEven = x -> x % 2 == 0;
+        System.out.println("isEven 4: " + isEven.apply(4));
+        System.out.println("isEven 7: " + isEven.apply(7));
+
+        Function<String, String> maskPhone = s -> s.replaceAll("\\d(?=\\d{4})", "*");
+        System.out.println("maskPhone: " + maskPhone.apply("13812345678"));
     }
 
 }

@@ -160,5 +160,16 @@ public class ThreadPoolDemo {
         rejectCounter.shutdown();
 
         System.out.println("queue remaining: " + executor.getQueue().remainingCapacity());
+
+        ThreadPoolExecutor watchPool = new ThreadPoolExecutor(
+            2, 4, 60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(5),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        watchPool.execute(() -> System.out.println("watch pool task"));
+        System.out.println("watch active: " + watchPool.getActiveCount());
+        System.out.println("watch pool: " + watchPool.getPoolSize());
+        watchPool.shutdown();
     }
 }
