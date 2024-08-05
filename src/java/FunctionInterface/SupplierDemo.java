@@ -84,5 +84,14 @@ public class SupplierDemo {
             return sum;
         };
         System.out.println("charCodeSum: " + charCodeSum.get());
+
+        Supplier<Integer> diceRoll = () -> (int)(Math.random() * 6) + 1;
+        System.out.println("diceRoll: " + diceRoll.get());
+
+        Supplier<String> emptyStr = () -> "";
+        System.out.println("empty isEmpty: " + emptyStr.get().isEmpty());
+
+        Supplier<Long> pidSupplier = () -> ProcessHandle.current().pid();
+        System.out.println("pid: " + pidSupplier.get());
     }
 }

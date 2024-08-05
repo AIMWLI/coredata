@@ -63,5 +63,20 @@ public class BiFunctionDemo {
             return sb.toString();
         };
         System.out.println("repeatStr: " + repeatStr.apply("ab", 3));
+
+        BinaryOperator<Integer> gcd = (a, b) -> {
+            while (b != 0) { int t = b; b = a % b; a = t; }
+            return a;
+        };
+        System.out.println("gcd 12 8: " + gcd.apply(12, 8));
+
+        BiFunction<String, String, Boolean> startsWith = String::startsWith;
+        System.out.println("startsWith hello he: " + startsWith.apply("hello", "he"));
+
+        BinaryOperator<String> longestStr = BinaryOperator.maxBy((a, b) -> Integer.compare(a.length(), b.length()));
+        System.out.println("longest: " + longestStr.apply("cat", "elephant"));
+
+        BiFunction<Integer, Integer, Integer> power = (a, b) -> (int) Math.pow(a, b);
+        System.out.println("power 2 10: " + power.apply(2, 10));
     }
 }
