@@ -33,6 +33,9 @@ public class SupplierDemo {
         Supplier<Integer> hashCodeSupplier = () -> "hello".hashCode();
         System.out.println("hashCode: " + hashCodeSupplier.get());
 
+        Supplier<String> osNameSupplier = () -> System.getProperty("os.name");
+        System.out.println("os.name: " + osNameSupplier.get());
+
         Supplier<Long> maxLongSupplier = () -> Long.MAX_VALUE;
         System.out.println("maxLong: " + maxLongSupplier.get());
 
