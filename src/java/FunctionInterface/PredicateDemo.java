@@ -66,6 +66,10 @@ public class PredicateDemo {
         System.out.println("valid hello: " + valid.test("hello"));
         System.out.println("valid null: " + valid.test(null));
 
+        Predicate<Integer> isDivisibleBy5 = x -> x % 5 == 0;
+        System.out.println("divisible by 5 10: " + isDivisibleBy5.test(10));
+        System.out.println("divisible by 5 11: " + isDivisibleBy5.test(11));
+
         Predicate<Integer> isDivisibleBy3 = x -> x % 3 == 0;
         System.out.println("divisible by 3 9: " + isDivisibleBy3.test(9));
         System.out.println("divisible by 3 10: " + isDivisibleBy3.test(10));
