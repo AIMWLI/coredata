@@ -25,6 +25,9 @@ public class OptionalDemo {
         Optional<String> optionalMap = Optional.of("test");
         optionalMap.map(String::toUpperCase).ifPresent(s -> System.out.println("mapped: " + s));
 
+        Optional<String> ofNullable = Optional.ofNullable(null);
+        System.out.println("ofNullable: " + ofNullable.orElse("default"));
+
         Optional<Integer> optInt = Optional.of(42);
         optInt.filter(v -> v > 10).ifPresent(v -> System.out.println("optInt: " + v));
 
