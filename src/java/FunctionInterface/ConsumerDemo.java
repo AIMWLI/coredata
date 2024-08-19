@@ -85,5 +85,23 @@ public class ConsumerDemo {
             System.out.println("stars: " + sb.toString());
         };
         printStars.accept("test");
+
+        Consumer<String> logThenUpper = s -> {
+            System.out.println("raw: " + s);
+            System.out.println("upper: " + s.toUpperCase());
+        };
+        logThenUpper.accept("logTest");
+
+        Consumer<Integer> squarePrint = x -> System.out.println("square: " + (x * x));
+        squarePrint.accept(7);
+
+        Consumer<List<String>> printList = list -> {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(i + ": " + list.get(i));
+            }
+        };
+        List<String> data = new ArrayList<>();
+        data.add("a"); data.add("b"); data.add("c");
+        printList.accept(data);
     }
 }

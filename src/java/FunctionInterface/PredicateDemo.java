@@ -107,3 +107,30 @@ public class PredicateDemo {
         Predicate<Integer> isPowerOfTwo = x -> x > 0 && (x & (x - 1)) == 0;
         System.out.println("powerOfTwo 8: " + isPowerOfTwo.test(8));
         System.out.println("powerOfTwo 10: " + isPowerOfTwo.test(10));
+
+        Predicate<String> isEmail = s -> s != null && s.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        System.out.println("email test@x: " + isEmail.test("test@example.com"));
+        System.out.println("email bad: " + isEmail.test("not-email"));
+
+        Predicate<Integer> isPerfectNumber = x -> {
+            if (x < 2) return false;
+            int sum = 1;
+            for (int i = 2; i * i <= x; i++) {
+                if (x % i == 0) {
+                    sum += i;
+                    if (i != x / i) sum += x / i;
+                }
+            }
+            return sum == x;
+        };
+        System.out.println("perfect 28: " + isPerfectNumber.test(28));
+        System.out.println("perfect 12: " + isPerfectNumber.test(12));
+
+        Predicate<Integer> isPalindrome = x -> {
+            String s = String.valueOf(x);
+            return s.equals(new StringBuilder(s).reverse().toString());
+        };
+        System.out.println("palindrome 121: " + isPalindrome.test(121));
+        System.out.println("palindrome 123: " + isPalindrome.test(123));
+    }
+}
