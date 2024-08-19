@@ -57,5 +57,10 @@ public class StringBuilderDemo {
         System.out.println("empty capacity: " + emptyBuilder.capacity());
         emptyBuilder.ensureCapacity(100);
         System.out.println("after ensure: " + emptyBuilder.capacity());
+
+        StringBuilder src = new StringBuilder("abcd");
+        char[] dst = new char[2];
+        src.getChars(0, 2, dst, 0);
+        System.out.println("getChars: " + new String(dst));
     }
 }
