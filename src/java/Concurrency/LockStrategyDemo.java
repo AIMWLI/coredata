@@ -53,6 +53,10 @@ public class LockStrategyDemo {
         stats.computeIfAbsent("hits", k -> new AtomicLong(0)).incrementAndGet();
         System.out.println("stats hits: " + stats.get("hits").get());
 
+        CountDownLatch latch = new CountDownLatch(1);
+        latch.countDown();
+        System.out.println("latch count: " + latch.getCount());
+
         Semaphore semaphore = new Semaphore(3);
         try {
             semaphore.acquire();
