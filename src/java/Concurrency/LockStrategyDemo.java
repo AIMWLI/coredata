@@ -109,6 +109,26 @@ public class LockStrategyDemo {
         AtomicLong counterGet = new AtomicLong(5);
         long oldVal = counterGet.getAndIncrement();
         System.out.println("oldVal: " + oldVal + " newVal: " + counterGet.get());
+
+        ConcurrentHashMap<Integer, String> numMapGet = new ConcurrentHashMap<>();
+        numMapGet.put(10, "ten");
+        numMapGet.computeIfAbsent(20, k -> "twenty");
+        System.out.println("numMapGet: " + numMapGet.get(20));
+
+        LongAdder longAdderSum = new LongAdder();
+        longAdderSum.add(10);
+        longAdderSum.add(20);
+        System.out.println("longAdder sum: " + longAdderSum.sum());
+
+        ReentrantLock tryLockDemo = new ReentrantLock();
+        boolean locked = tryLockDemo.tryLock();
+        if (locked) {
+            try {
+                System.out.println("tryLock acquired: " + tryLockDemo.isHeldByCurrentThread());
+            } finally {
+                tryLockDemo.unlock();
+            }
+        }
     }
 
     static class CounterHolder {
