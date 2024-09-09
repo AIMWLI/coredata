@@ -12,6 +12,13 @@ public class CompletableFutureDemo {
     );
 
     public static void main(String[] args) {
+        CompletableFuture<String> exceptionally = CompletableFuture.supplyAsync(() -> {
+            throw new RuntimeException("test");
+        }, workerExecutor).handle((r, ex) -> {
+            return ex != null ? "recovered" : r;
+        });
+        System.out.println("exceptionally: " + exceptionally.join());
+
         CompletableFuture<String> step1 = CompletableFuture.supplyAsync(() -> "data", workerExecutor);
 
         CompletableFuture<Integer> step2 = step1.handle((value, ex) -> {
