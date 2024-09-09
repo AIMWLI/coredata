@@ -45,6 +45,9 @@ public class Test {
         System.out.println("size: " + map.size());
         System.out.println("empty: " + map.isEmpty());
 
+        map.replaceAll((k, v) -> String.valueOf(v) + "_");
+        map.forEach((k, v) -> System.out.println(k + ":" + v));
+
         Map<String, Object> copy = new HashMap<>();
         copy.putAll(map);
         System.out.println("copy size: " + copy.size());
