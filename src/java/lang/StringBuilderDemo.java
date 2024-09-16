@@ -99,5 +99,12 @@ public class StringBuilderDemo {
         StringBuilder appendInt = new StringBuilder();
         appendInt.append(123).append(true).append(45.6);
         System.out.println("appendInt: " + appendInt.toString());
+
+        StringBuilder codePointCount = new StringBuilder("hello world");
+        System.out.println("codePointCount: " + codePointCount.codePointCount(0, codePointCount.length()));
+
+        StringBuilder offsetBy = new StringBuilder("hello");
+        int idx = offsetBy.offsetByCodePoints(0, 2);
+        System.out.println("offsetByCodePoints: " + idx);
     }
 }

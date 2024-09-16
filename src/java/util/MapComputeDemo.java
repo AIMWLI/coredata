@@ -61,5 +61,13 @@ public class MapComputeDemo {
         map.computeIfPresent("b", (k, v) -> v + 10);
         System.out.println("a after merge: " + map.get("a"));
         System.out.println("b after present: " + map.get("b"));
+
+        map.merge("z", 100, Integer::sum);
+        map.compute("z", (k, v) -> v / 2);
+        map.computeIfAbsent("zz", k -> 200);
+        System.out.println("z: " + map.get("z") + " zz: " + map.get("zz"));
+
+        map.computeIfPresent("a", (k, v) -> v > 10 ? v : v + 100);
+        System.out.println("a conditional: " + map.get("a"));
     }
 }
