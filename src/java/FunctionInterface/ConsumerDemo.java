@@ -51,6 +51,11 @@ public class ConsumerDemo {
         Consumer<String> logAfter = s -> System.out.println("after: " + s);
         logBefore.andThen(s -> System.out.println("process: " + s)).andThen(logAfter).accept("data");
 
+        Consumer<String> composed = ((Consumer<String>) s -> System.out.print("[" + s))
+            .andThen(s -> System.out.println("]"))
+            .andThen(s -> System.out.println("done"));
+        composed.accept("composed");
+
         Consumer<String> prefix = s -> System.out.print("prefix:");
         Consumer<String> suffix = s -> System.out.println(":suffix");
         prefix.andThen(s -> System.out.print(s)).andThen(suffix).accept("middle");
