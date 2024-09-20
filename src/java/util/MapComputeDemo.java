@@ -36,6 +36,10 @@ public class MapComputeDemo {
         map.compute("i", (k, v) -> v * 10);
         System.out.println("i: " + map.get("i"));
 
+        map.computeIfAbsent("j", k -> 10);
+        map.computeIfAbsent("k", k -> 20);
+        System.out.println("j: " + map.get("j") + ", k: " + map.get("k"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
