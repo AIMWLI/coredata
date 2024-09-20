@@ -24,6 +24,9 @@ public class BiFunctionDemo {
         BiFunction<Integer, Integer, Integer> multiply = (a, b) -> a * b;
         System.out.println("multiply: " + multiply.apply(4, 5));
 
+        BiFunction<Integer, Integer, Integer> subtract = (a, b) -> a - b;
+        System.out.println("subtract: " + subtract.apply(10, 3));
+
         BiFunction<String, String, String> concat = (a, b) -> a + b;
         System.out.println("concat: " + concat.apply("a", "b"));
 
