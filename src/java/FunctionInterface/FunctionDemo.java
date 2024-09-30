@@ -60,6 +60,9 @@ public class FunctionDemo {
         Function<String, String> substring = s -> s.substring(0, Math.min(s.length(), 3));
         System.out.println("substring: " + substring.apply("hello"));
 
+        Function<String, String> reverseStr = s -> new StringBuilder(s).reverse().toString();
+        System.out.println("reverse: " + reverseStr.apply("abc"));
+
         Function<String, String> removeSpace = s -> s.replaceAll("\\s+", "");
         System.out.println("removeSpace: " + removeSpace.apply("a b c"));
 
