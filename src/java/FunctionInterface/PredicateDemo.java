@@ -47,6 +47,10 @@ public class PredicateDemo {
         Predicate<Integer> lessThan100 = x -> x < 100;
         System.out.println("gt10 and lt100 50: " + gt10.and(lessThan100).test(50));
 
+        Predicate<Integer> isOdd = x -> x % 2 != 0;
+        System.out.println("odd 7: " + isOdd.test(7));
+        System.out.println("odd 8: " + isOdd.test(8));
+
         Predicate<String> startsWith = s -> s.startsWith("h");
         Predicate<String> endsWith = s -> s.endsWith("o");
         System.out.println("starts h and ends o: " + startsWith.and(endsWith).test("hello"));
