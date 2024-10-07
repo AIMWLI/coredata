@@ -36,17 +36,20 @@ public class SupplierDemo {
         Supplier<String> osNameSupplier = () -> System.getProperty("os.name");
         System.out.println("os.name: " + osNameSupplier.get());
 
+        Supplier<String> fileSepSupplier = () -> System.getProperty("file.separator");
+        System.out.println("file.separator: " + fileSepSupplier.get());
+
         Supplier<Long> maxLongSupplier = () -> Long.MAX_VALUE;
         System.out.println("maxLong: " + maxLongSupplier.get());
 
         Supplier<String> upperSupplier = () -> "hello".toUpperCase();
-        System.out.println("upper: " + upperSupplier.get());
+        System.out.println("os.name: " + osNameSupplier.get());
+
+        Supplier<Long> maxLongSupplier = () -> Long.MAX_VALUE;
+        System.out.println("maxLong: " + maxLongSupplier.get());
 
         Supplier<String> threadNameSupplier = () -> Thread.currentThread().getName();
         System.out.println("thread: " + threadNameSupplier.get());
-
-        Supplier<String> userDirSupplier = () -> System.getProperty("user.dir");
-        System.out.println("user.dir: " + userDirSupplier.get());
 
         Supplier<String> defaultSupplier = () -> "default value";
         String result = Optional.ofNullable((String) null).orElseGet(defaultSupplier);
