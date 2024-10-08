@@ -74,6 +74,13 @@ public class ThreadPoolIsolationDemo {
             Thread.currentThread().interrupt();
         }
 
+        Future<?> submit = workerExecutor.submit(() -> System.out.println("submit task"));
+        try {
+            submit.get(1, TimeUnit.SECONDS);
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
+        }
+
         workerExecutor.shutdown();
         cpuExecutor.shutdown();
     }

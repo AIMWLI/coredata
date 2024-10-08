@@ -65,5 +65,11 @@ public class OptionalDemo {
         Optional<String> mapEmpty = Optional.empty();
         Object mapEmptyResult = mapEmpty.map(String::length).orElse(0);
         System.out.println("mapEmpty: " + mapEmptyResult);
+
+        Optional<String> orElseGetEx = Optional.ofNullable(null);
+        System.out.println("orElseGet computed: " + orElseGetEx.orElseGet(() -> "lazy"));
+
+        Optional<String> filterOrElse = Optional.of("abc");
+        filterOrElse.filter(s -> s.length() > 5).orElseThrow(() -> new RuntimeException("too short"));
     }
 }
