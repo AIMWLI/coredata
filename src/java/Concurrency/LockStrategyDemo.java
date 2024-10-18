@@ -57,6 +57,10 @@ public class LockStrategyDemo {
         latch.countDown();
         System.out.println("latch count: " + latch.getCount());
 
+        AtomicBoolean flag = new AtomicBoolean(false);
+        flag.compareAndSet(false, true);
+        System.out.println("cas flag: " + flag.get());
+
         Semaphore semaphore = new Semaphore(3);
         try {
             semaphore.acquire();
