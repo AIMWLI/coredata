@@ -89,6 +89,8 @@ public class ThreadPoolDemo {
         executor.prestartAllCoreThreads();
         System.out.println("pool size after prestart: " + executor.getPoolSize());
 
+        System.out.println("largest pool size: " + executor.getLargestPoolSize());
+
         Callable<String> callableTask = () -> Thread.currentThread().getName();
         Future<String> future = executor2.submit(callableTask);
         try {
