@@ -62,5 +62,8 @@ public class StringBuilderDemo {
         char[] dst = new char[2];
         src.getChars(0, 2, dst, 0);
         System.out.println("getChars: " + new String(dst));
+
+        StringBuilder lastIdx = new StringBuilder("hello world hello");
+        System.out.println("lastIndexOf hello: " + lastIdx.lastIndexOf("hello"));
     }
 }
