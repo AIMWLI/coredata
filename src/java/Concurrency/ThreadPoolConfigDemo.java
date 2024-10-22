@@ -46,5 +46,16 @@ public class ThreadPoolConfigDemo {
         scheduledWrap.execute(() -> System.out.println("scheduledWrap task"));
         System.out.println("scheduledWrap active: " + scheduledWrap.getActiveCount());
         scheduledWrap.shutdown();
+
+        ThreadPoolExecutor monitorPool = new ThreadPoolExecutor(
+            2, 4, 60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(50),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        monitorPool.execute(() -> System.out.println("monitor pool task"));
+        System.out.println("monitor poolSize: " + monitorPool.getPoolSize());
+        System.out.println("monitor completed: " + monitorPool.getCompletedTaskCount());
+        monitorPool.shutdown();
     }
 }
