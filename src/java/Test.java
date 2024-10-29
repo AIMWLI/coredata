@@ -45,6 +45,8 @@ public class Test {
         System.out.println("size: " + map.size());
         System.out.println("empty: " + map.isEmpty());
 
+        System.out.println("map eq: " + map.equals(copy));
+
         map.replaceAll((k, v) -> String.valueOf(v) + "_");
         map.forEach((k, v) -> System.out.println(k + ":" + v));
 
