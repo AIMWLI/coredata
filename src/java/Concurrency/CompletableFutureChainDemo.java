@@ -65,6 +65,20 @@ public class CompletableFutureChainDemo {
             });
         System.out.println("chainHandle: " + chainHandle.get(2, TimeUnit.SECONDS));
 
+        CompletableFuture<String> exceptHandle = CompletableFuture.supplyAsync(() -> {
+            throw new RuntimeException("chain error");
+        }, workerExecutor).handle((r, ex) -> {
+            if (ex != null) return "chain recovered";
+            return r;
+        });
+        System.out.println("exceptHandle: " + exceptHandle.get(2, TimeUnit.SECONDS));
+
+        CompletableFuture<String> combined = CompletableFuture.supplyAsync(() -> "X", workerExecutor)
+            .thenCombineAsync(CompletableFuture.supplyAsync(() -> "Y", workerExecutor),
+                (a, b) -> a + b, workerExecutor)
+            .handle((r, ex) -> ex != null ? "err" : r);
+        System.out.println("combined: " + combined.get(2, TimeUnit.SECONDS));
+
         workerExecutor.shutdown();
     }
 }
