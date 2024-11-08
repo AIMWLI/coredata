@@ -39,6 +39,10 @@ public class CompletableFutureDemo {
             System.err.println("error: " + e.getMessage());
         }
 
+        String now = CompletableFuture.supplyAsync(() -> "now", workerExecutor)
+            .getNow("default");
+        System.out.println("getNow: " + now);
+
         CompletableFuture<String> errorFuture = CompletableFuture.supplyAsync(() -> {
             throw new RuntimeException("fail");
         }, workerExecutor);
