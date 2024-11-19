@@ -40,6 +40,9 @@ public class MapComputeDemo {
         map.computeIfAbsent("k", k -> 20);
         System.out.println("j: " + map.get("j") + ", k: " + map.get("k"));
 
+        map.putIfAbsent("a", 100);
+        System.out.println("a after putIfAbsent: " + map.get("a"));
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
