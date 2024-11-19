@@ -33,6 +33,13 @@ public class ConsumerDemo {
             printItem.accept(item);
         }
 
+        Consumer<String> emptyString = s -> {
+            if (s.isEmpty()) {
+                System.out.println("empty string");
+            }
+        };
+        emptyString.accept("");
+
         Consumer<String> safePrint = s -> {
             if (s != null) {
                 System.out.println("safe: " + s);
