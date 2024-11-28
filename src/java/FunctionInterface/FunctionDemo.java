@@ -40,6 +40,9 @@ public class FunctionDemo {
         Function<String, Integer> parseIntFunc = Integer::parseInt;
         System.out.println("parseInt: " + parseIntFunc.apply("42"));
 
+        Function<String, String> concatStr = a -> a + a;
+        System.out.println("concatStr: " + concatStr.apply("ab"));
+
         Function<String, Character> firstChar = s -> s.charAt(0);
         System.out.println("firstChar: " + firstChar.apply("hello"));
 
