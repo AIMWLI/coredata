@@ -74,6 +74,13 @@ public class PredicateDemo {
         System.out.println("divisible by 5 10: " + isDivisibleBy5.test(10));
         System.out.println("divisible by 5 11: " + isDivisibleBy5.test(11));
 
+        Predicate<Integer> isSquare = x -> {
+            int s = (int) Math.sqrt(x);
+            return s * s == x;
+        };
+        System.out.println("square 16: " + isSquare.test(16));
+        System.out.println("square 17: " + isSquare.test(17));
+
         Predicate<Integer> isDivisibleBy3 = x -> x % 3 == 0;
         System.out.println("divisible by 3 9: " + isDivisibleBy3.test(9));
         System.out.println("divisible by 3 10: " + isDivisibleBy3.test(10));
