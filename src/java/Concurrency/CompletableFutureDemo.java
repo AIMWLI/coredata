@@ -92,6 +92,15 @@ public class CompletableFutureDemo {
             .handle((v, ex) -> ex != null ? "err2" : v + "+final");
         System.out.println("handleChain: " + handleChain.join());
 
+        CompletableFuture<Integer> retryHandle = CompletableFuture.supplyAsync(() -> {
+            if (Math.random() > 0.5) throw new RuntimeException("fail");
+            return 100;
+        }, workerExecutor).handle((r, ex) -> {
+            if (ex != null) return 0;
+            return r + 50;
+        });
+        System.out.println("retryHandle: " + retryHandle.join());
+
         workerExecutor.shutdown();
     }
 }
