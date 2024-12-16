@@ -25,6 +25,9 @@ public class OptionalDemo {
         Optional<String> optionalMap = Optional.of("test");
         optionalMap.map(String::toUpperCase).ifPresent(s -> System.out.println("mapped: " + s));
 
+        Optional<String> optFlat = Optional.of("hello");
+        optFlat.flatMap(s -> Optional.of(s.toUpperCase())).ifPresent(s -> System.out.println("flatMap: " + s));
+
         Optional<String> optIf = Optional.of("hello");
         optIf.filter(s -> s.contains("ell")).ifPresent(s -> System.out.println("contains: " + s));
 
