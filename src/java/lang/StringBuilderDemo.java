@@ -65,5 +65,8 @@ public class StringBuilderDemo {
 
         StringBuilder lastIdx = new StringBuilder("hello world hello");
         System.out.println("lastIndexOf hello: " + lastIdx.lastIndexOf("hello"));
+
+        StringBuilder sb3 = new StringBuilder(50);
+        System.out.println("initial capacity: " + sb3.capacity());
     }
 }
