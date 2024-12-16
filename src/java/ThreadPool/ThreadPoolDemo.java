@@ -91,6 +91,8 @@ public class ThreadPoolDemo {
 
         System.out.println("largest pool size: " + executor.getLargestPoolSize());
 
+        System.out.println("task count: " + executor.getTaskCount());
+
         Callable<String> callableTask = () -> Thread.currentThread().getName();
         Future<String> future = executor2.submit(callableTask);
         try {
