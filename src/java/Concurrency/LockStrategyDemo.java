@@ -57,6 +57,11 @@ public class LockStrategyDemo {
         latch.countDown();
         System.out.println("latch count: " + latch.getCount());
 
+        LongAdder longAdder = new LongAdder();
+        longAdder.add(5);
+        longAdder.increment();
+        System.out.println("longAdder: " + longAdder.sum());
+
         AtomicBoolean flag = new AtomicBoolean(false);
         flag.compareAndSet(false, true);
         System.out.println("cas flag: " + flag.get());
