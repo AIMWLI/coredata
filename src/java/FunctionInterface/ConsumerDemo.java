@@ -1,5 +1,7 @@
 package FunctionInterface;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
@@ -22,6 +24,14 @@ public class ConsumerDemo {
 
         Consumer<String> pipeline = printUpperCase.andThen(printLength);
         pipeline.accept("functional");
+
+        List<String> items = new ArrayList<>();
+        items.add("x");
+        items.add("y");
+        Consumer<String> printItem = System.out::println;
+        for (String item : items) {
+            printItem.accept(item);
+        }
 
         while (true) {
             Consumer<String> consumer = System.out::println;
