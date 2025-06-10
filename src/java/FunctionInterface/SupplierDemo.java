@@ -25,5 +25,8 @@ public class SupplierDemo {
 
         Supplier<Double> randomSupplier = () -> Math.random();
         System.out.println("randomSupplier.get() = " + randomSupplier.get());
+
+        Supplier<String> propertySupplier = () -> System.getProperty("java.version");
+        System.out.println("java.version: " + propertySupplier.get());
     }
 }
