@@ -35,6 +35,12 @@ public class FunctionDemo {
 
         Function<String, Integer> strLen = String::length;
         System.out.println("strLen hello: " + strLen.apply("hello"));
+
+        Function<Object, Object> identity = Function.identity();
+        System.out.println("identity: " + identity.apply("test"));
+
+        Function<Integer, Integer> constant = x -> 42;
+        System.out.println("constant: " + constant.apply(100));
     }
 
 }
