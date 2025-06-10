@@ -1,5 +1,7 @@
 package FunctionInterface;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -29,5 +31,16 @@ public class PredicateDemo {
         Predicate<String> isEmpty = Predicate.isEqual("");
         System.out.println("isEqual empty: " + isEmpty.test(""));
         System.out.println("isEqual hello: " + isEmpty.test("hello"));
+
+        List<Integer> nums = new ArrayList<>();
+        nums.add(5);
+        nums.add(12);
+        nums.add(8);
+        Predicate<Integer> gt10 = x -> x > 10;
+        for (Integer n : nums) {
+            if (gt10.test(n)) {
+                System.out.println(n + " gt10");
+            }
+        }
     }
 }
