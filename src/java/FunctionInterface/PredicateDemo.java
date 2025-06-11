@@ -19,5 +19,11 @@ public class PredicateDemo {
         System.out.println("predicate.test(5) = " + predicate.test(5));
         System.out.println("predicate.test(5) = " + predicate.test(11));
 
+        Predicate<Integer> greaterThan5 = x -> x > 5;
+        Predicate<Integer> lessThan15 = x -> x < 15;
+
+        System.out.println("gt5 and lt15: " + greaterThan5.and(lessThan15).test(10));
+        System.out.println("gt5 or lt15: " + greaterThan5.or(lessThan15).test(20));
+        System.out.println("negate: " + greaterThan5.negate().test(3));
     }
 }
