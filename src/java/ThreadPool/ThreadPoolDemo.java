@@ -23,5 +23,29 @@ public class ThreadPoolDemo {
         }
 
         executor.shutdown();
+
+        ThreadPoolExecutor abortPolicy = new ThreadPoolExecutor(
+            1, 2, 0L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        abortPolicy.shutdown();
+
+        ThreadPoolExecutor discardPolicy = new ThreadPoolExecutor(
+            1, 2, 0L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.DiscardPolicy()
+        );
+        discardPolicy.shutdown();
+
+        ThreadPoolExecutor callerRuns = new ThreadPoolExecutor(
+            1, 2, 0L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.CallerRunsPolicy()
+        );
+        callerRuns.shutdown();
     }
 }
