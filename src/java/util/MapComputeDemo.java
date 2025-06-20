@@ -14,6 +14,7 @@ public class MapComputeDemo {
         map.computeIfPresent("a", (k, v) -> v + 10);
         map.computeIfAbsent("d", k -> 4);
         map.merge("b", 5, (oldVal, newVal) -> oldVal + newVal);
+        map.replaceAll((k, v) -> v * 2);
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
