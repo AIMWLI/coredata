@@ -26,5 +26,12 @@ public class StringBuilderDemo {
 
         sb2.delete(5, 10);
         System.out.println(sb2.toString());
+
+        System.out.println("capacity: " + sb2.capacity());
+        sb2.trimToSize();
+        System.out.println("after trim: " + sb2.capacity());
+
+        StringBuilder reverseSb = new StringBuilder("abcdef");
+        System.out.println("reverse: " + reverseSb.reverse().toString());
     }
 }
