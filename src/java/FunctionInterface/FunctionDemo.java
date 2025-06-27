@@ -27,6 +27,11 @@ public class FunctionDemo {
         Function<Integer, Integer> function1 = x -> x + 20;
         System.out.println("function1.apply(5) = " + function1.apply(5));
 
+        Function<Integer, Integer> multiply = x -> x * 2;
+        Function<Integer, Integer> addThree = x -> x + 3;
+
+        System.out.println("compose: " + multiply.compose(addThree).apply(5));
+        System.out.println("andThen: " + multiply.andThen(addThree).apply(5));
     }
 
 }
