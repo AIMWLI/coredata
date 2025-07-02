@@ -33,6 +33,13 @@ public class ConsumerDemo {
             printItem.accept(item);
         }
 
+        Consumer<String> safePrint = s -> {
+            if (s != null) {
+                System.out.println("safe: " + s);
+            }
+        };
+        safePrint.accept("not null");
+
         while (true) {
             Consumer<String> consumer = System.out::println;
             Scanner scanner = new Scanner(System.in);
