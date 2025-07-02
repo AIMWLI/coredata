@@ -41,6 +41,11 @@ public class FunctionDemo {
 
         Function<Integer, Integer> constant = x -> 42;
         System.out.println("constant: " + constant.apply(100));
+
+        Function<Integer, Integer> add1 = x -> x + 1;
+        Function<Integer, Integer> mul2 = x -> x * 2;
+        System.out.println("add1 then mul2: " + add1.andThen(mul2).apply(3));
+        System.out.println("mul2 then add1: " + mul2.andThen(add1).apply(3));
     }
 
 }
