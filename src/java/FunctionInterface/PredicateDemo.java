@@ -2,6 +2,7 @@ package FunctionInterface;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -38,6 +39,16 @@ public class PredicateDemo {
         nums.add(8);
         Predicate<Integer> gt10 = x -> x > 10;
         for (Integer n : nums) {
+            if (gt10.test(n)) {
+                System.out.println(n + " gt10");
+            }
+        }
+
+        Predicate<String> notNull = Objects::nonNull;
+        Predicate<String> notEmpty = s -> !s.isEmpty();
+        Predicate<String> valid = notNull.and(notEmpty);
+        System.out.println("valid hello: " + valid.test("hello"));
+        System.out.println("valid null: " + valid.test(null));
             if (gt10.test(n)) {
                 System.out.println(n + " gt10");
             }
