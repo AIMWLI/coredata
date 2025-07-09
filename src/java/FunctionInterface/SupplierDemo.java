@@ -1,5 +1,6 @@
 package FunctionInterface;
 
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Supplier;
 
@@ -28,5 +29,9 @@ public class SupplierDemo {
 
         Supplier<String> propertySupplier = () -> System.getProperty("java.version");
         System.out.println("java.version: " + propertySupplier.get());
+
+        Supplier<String> defaultSupplier = () -> "default value";
+        String result = Optional.ofNullable((String) null).orElseGet(defaultSupplier);
+        System.out.println("orElseGet: " + result);
     }
 }
