@@ -24,6 +24,22 @@ public class ThreadPoolDemo {
 
         executor.shutdown();
 
+        ThreadPoolExecutor executor2 = new ThreadPoolExecutor(
+            2, 4, 60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(10),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+
+        Callable<String> callableTask = () -> Thread.currentThread().getName();
+        Future<String> future = executor2.submit(callableTask);
+        try {
+            System.out.println("future: " + future.get(1, TimeUnit.SECONDS));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        executor2.shutdown();
+
         ThreadPoolExecutor abortPolicy = new ThreadPoolExecutor(
             1, 2, 0L, TimeUnit.SECONDS,
             new SynchronousQueue<>(),
