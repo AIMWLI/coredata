@@ -1,5 +1,7 @@
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Test {
     public static void main(String[] args) {
@@ -15,5 +17,15 @@ public class Test {
 
         System.out.println(map.getOrDefault("5", 0));
         map.replace("2", 20);
+
+        Set<String> keys = map.keySet();
+        for (String key : keys) {
+            System.out.println("key: " + key);
+        }
+
+        Collection<Object> values = map.values();
+        for (Object val : values) {
+            System.out.println("val: " + val);
+        }
     }
 }
