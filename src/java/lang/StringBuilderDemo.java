@@ -19,5 +19,12 @@ public class StringBuilderDemo {
             reverse.append(words[i]);
         }
         System.out.println(reverse.toString());
+
+        StringBuilder sb2 = new StringBuilder("hello world");
+        sb2.insert(5, " java");
+        System.out.println(sb2.toString());
+
+        sb2.delete(5, 10);
+        System.out.println(sb2.toString());
     }
 }
