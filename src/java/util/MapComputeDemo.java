@@ -16,6 +16,7 @@ public class MapComputeDemo {
         map.merge("b", 5, (oldVal, newVal) -> oldVal + newVal);
         map.replaceAll((k, v) -> v * 2);
         map.compute("a", (k, v) -> v == null ? 0 : v + 1);
+        map.merge("c", 10, Integer::sum);
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
