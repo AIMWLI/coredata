@@ -17,6 +17,12 @@ public class ConsumerDemo {
         };
         consumer.accept("i am input");
 */
+        Consumer<String> printUpperCase = s -> System.out.println(s.toUpperCase());
+        Consumer<String> printLength = s -> System.out.println(s.length());
+
+        Consumer<String> pipeline = printUpperCase.andThen(printLength);
+        pipeline.accept("functional");
+
         while (true) {
             Consumer<String> consumer = System.out::println;
             Scanner scanner = new Scanner(System.in);
