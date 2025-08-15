@@ -33,5 +33,9 @@ public class StringBuilderDemo {
 
         StringBuilder reverseSb = new StringBuilder("abcdef");
         System.out.println("reverse: " + reverseSb.reverse().toString());
+
+        StringBuilder search = new StringBuilder("hello world");
+        System.out.println("indexOf: " + search.indexOf("world"));
+        System.out.println("substring: " + search.substring(0, 5));
     }
 }
