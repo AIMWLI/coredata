@@ -46,6 +46,21 @@ public class FunctionDemo {
         Function<Integer, Integer> mul2 = x -> x * 2;
         System.out.println("add1 then mul2: " + add1.andThen(mul2).apply(3));
         System.out.println("mul2 then add1: " + mul2.andThen(add1).apply(3));
+
+        Function<Integer, String> grade = x -> {
+            if (x >= 90) {
+                return "A";
+            }
+            if (x >= 80) {
+                return "B";
+            }
+            if (x >= 70) {
+                return "C";
+            }
+            return "D";
+        };
+        System.out.println("grade 85: " + grade.apply(85));
+        System.out.println("grade 60: " + grade.apply(60));
     }
 
 }
