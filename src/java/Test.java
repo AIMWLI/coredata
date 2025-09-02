@@ -12,5 +12,8 @@ public class Test {
         map.putIfAbsent("1", 100);
         map.computeIfAbsent("4", k -> Integer.valueOf(k));
         map.forEach((k, v) -> System.out.println(k + " -> " + v));
+
+        System.out.println(map.getOrDefault("5", 0));
+        map.replace("2", 20);
     }
 }
