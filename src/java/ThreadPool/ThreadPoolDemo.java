@@ -31,6 +31,9 @@ public class ThreadPoolDemo {
             new ThreadPoolExecutor.AbortPolicy()
         );
 
+        System.out.println("active: " + executor.getActiveCount());
+        System.out.println("completed: " + executor.getCompletedTaskCount());
+
         Callable<String> callableTask = () -> Thread.currentThread().getName();
         Future<String> future = executor2.submit(callableTask);
         try {
