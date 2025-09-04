@@ -17,5 +17,16 @@ public class OptionalDemo {
 
         Optional<String> noValue = Optional.empty();
         System.out.println("orElseGet: " + noValue.orElseGet(() -> "computed"));
+
+        Optional<String> mapped = Optional.of("  hello  ");
+        Optional<String> trimmed = mapped.map(String::trim);
+        trimmed.ifPresent(s -> System.out.println("trimmed: " + s));
+
+        Optional<String> throwIfEmpty = Optional.empty();
+        try {
+            throwIfEmpty.orElseThrow(() -> new RuntimeException("no value"));
+        } catch (RuntimeException e) {
+            System.out.println("caught: " + e.getMessage());
+        }
     }
 }
