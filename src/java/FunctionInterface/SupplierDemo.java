@@ -19,5 +19,8 @@ public class SupplierDemo {
         Supplier<String> supplier = () -> UUID.randomUUID().toString().replaceAll("-", "");
         System.out.println("supplier.get() = " + supplier.get());
         System.out.println("supplier.get() = " + supplier.get());
+
+        Supplier<Long> timeSupplier = () -> System.currentTimeMillis();
+        System.out.println("timeSupplier.get() = " + timeSupplier.get());
     }
 }
