@@ -44,6 +44,11 @@ public class PredicateDemo {
             }
         }
 
+        Predicate<Integer> even = x -> x % 2 == 0;
+        Predicate<Integer> positive = x -> x > 0;
+        System.out.println("even and positive 4: " + even.and(positive).test(4));
+        System.out.println("even and positive -2: " + even.and(positive).test(-2));
+
         Predicate<String> notNull = Objects::nonNull;
         Predicate<String> notEmpty = s -> !s.isEmpty();
         Predicate<String> valid = notNull.and(notEmpty);
