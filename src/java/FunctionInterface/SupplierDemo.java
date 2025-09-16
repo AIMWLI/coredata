@@ -30,6 +30,9 @@ public class SupplierDemo {
         Supplier<String> propertySupplier = () -> System.getProperty("java.version");
         System.out.println("java.version: " + propertySupplier.get());
 
+        Supplier<String> userDirSupplier = () -> System.getProperty("user.dir");
+        System.out.println("user.dir: " + userDirSupplier.get());
+
         Supplier<String> defaultSupplier = () -> "default value";
         String result = Optional.ofNullable((String) null).orElseGet(defaultSupplier);
         System.out.println("orElseGet: " + result);
