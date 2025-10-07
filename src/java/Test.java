@@ -8,5 +8,9 @@ public class Test {
         map.put("1", 1);
         map.put("2", 2);
         map.put("3", 3);
+
+        map.putIfAbsent("1", 100);
+        map.computeIfAbsent("4", k -> Integer.valueOf(k));
+        map.forEach((k, v) -> System.out.println(k + " -> " + v));
     }
 }
