@@ -44,6 +44,9 @@ public class ConsumerDemo {
         Consumer<String> log = s -> System.out.println("log: " + s);
         wrapWithBrackets.andThen(log).accept("wrapped");
 
+        Consumer<Integer> printInt = System.out::println;
+        printInt.accept(42);
+
         while (true) {
             Consumer<String> consumer = System.out::println;
             Scanner scanner = new Scanner(System.in);
