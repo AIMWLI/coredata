@@ -37,5 +37,13 @@ public class StringBuilderDemo {
         StringBuilder search = new StringBuilder("hello world");
         System.out.println("indexOf: " + search.indexOf("world"));
         System.out.println("substring: " + search.substring(0, 5));
+
+        StringBuilder replace = new StringBuilder("abcdef");
+        replace.replace(1, 3, "XYZ");
+        System.out.println("replace: " + replace.toString());
+
+        StringBuilder chars = new StringBuilder("abc");
+        chars.setCharAt(1, 'B');
+        System.out.println("setCharAt: " + chars.toString());
     }
 }
