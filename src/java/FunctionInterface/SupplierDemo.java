@@ -22,5 +22,8 @@ public class SupplierDemo {
 
         Supplier<Long> timeSupplier = () -> System.currentTimeMillis();
         System.out.println("timeSupplier.get() = " + timeSupplier.get());
+
+        Supplier<Double> randomSupplier = () -> Math.random();
+        System.out.println("randomSupplier.get() = " + randomSupplier.get());
     }
 }
