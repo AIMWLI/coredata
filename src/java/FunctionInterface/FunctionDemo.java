@@ -33,6 +33,9 @@ public class FunctionDemo {
         System.out.println("compose: " + multiply.compose(addThree).apply(5));
         System.out.println("andThen: " + multiply.andThen(addThree).apply(5));
 
+        Function<String, Integer> parseIntFunc = Integer::parseInt;
+        System.out.println("parseInt: " + parseIntFunc.apply("42"));
+
         Function<String, Integer> strLen = String::length;
         System.out.println("strLen hello: " + strLen.apply("hello"));
 
