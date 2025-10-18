@@ -27,5 +27,12 @@ public class Test {
         for (Object val : values) {
             System.out.println("val: " + val);
         }
+
+        System.out.println("containsKey 1: " + map.containsKey("1"));
+        System.out.println("containsKey 5: " + map.containsKey("5"));
+
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
     }
 }
