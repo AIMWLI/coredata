@@ -31,6 +31,20 @@ public class ThreadPoolDemo {
             new ThreadPoolExecutor.AbortPolicy()
         );
 
+        ThreadPoolExecutor namedExecutor = new ThreadPoolExecutor(
+            2, 4, 30L, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(5),
+            r -> {
+                Thread t = new Thread(r);
+                t.setName("custom-" + t.getId());
+                t.setDaemon(true);
+                return t;
+            },
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        namedExecutor.execute(() -> System.out.println(Thread.currentThread().getName()));
+        namedExecutor.shutdown();
+
         System.out.println("active: " + executor.getActiveCount());
         System.out.println("completed: " + executor.getCompletedTaskCount());
 
