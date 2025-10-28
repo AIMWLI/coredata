@@ -25,5 +25,9 @@ public class PredicateDemo {
         System.out.println("gt5 and lt15: " + greaterThan5.and(lessThan15).test(10));
         System.out.println("gt5 or lt15: " + greaterThan5.or(lessThan15).test(20));
         System.out.println("negate: " + greaterThan5.negate().test(3));
+
+        Predicate<String> isEmpty = Predicate.isEqual("");
+        System.out.println("isEqual empty: " + isEmpty.test(""));
+        System.out.println("isEqual hello: " + isEmpty.test("hello"));
     }
 }
