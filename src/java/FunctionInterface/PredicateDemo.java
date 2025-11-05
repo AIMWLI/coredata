@@ -44,6 +44,10 @@ public class PredicateDemo {
             }
         }
 
+        Predicate<Integer> between = x -> x > 10 && x < 20;
+        System.out.println("between 15: " + between.test(15));
+        System.out.println("between 25: " + between.test(25));
+
         Predicate<Integer> even = x -> x % 2 == 0;
         Predicate<Integer> positive = x -> x > 0;
         System.out.println("even and positive 4: " + even.and(positive).test(4));
