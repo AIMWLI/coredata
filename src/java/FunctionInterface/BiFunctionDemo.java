@@ -17,5 +17,11 @@ public class BiFunctionDemo {
 
         BinaryOperator<Integer> sum = (a, b) -> a + b;
         System.out.println("binaryOperator: " + sum.apply(10, 20));
+
+        BinaryOperator<Integer> min = BinaryOperator.minBy(Integer::compare);
+        System.out.println("min: " + min.apply(8, 3));
+
+        BiFunction<String, String, Integer> compareTo = String::compareTo;
+        System.out.println("compare a b: " + compareTo.apply("a", "b"));
     }
 }
