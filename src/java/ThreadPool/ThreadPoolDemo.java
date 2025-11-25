@@ -31,6 +31,15 @@ public class ThreadPoolDemo {
             new ThreadPoolExecutor.AbortPolicy()
         );
 
+        ThreadPoolExecutor syncQueue = new ThreadPoolExecutor(
+            1, 2, 0L, TimeUnit.SECONDS,
+            new SynchronousQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+        syncQueue.execute(() -> System.out.println("sync queue task"));
+        syncQueue.shutdown();
+
         ThreadPoolExecutor namedExecutor = new ThreadPoolExecutor(
             2, 4, 30L, TimeUnit.SECONDS,
             new ArrayBlockingQueue<>(5),
